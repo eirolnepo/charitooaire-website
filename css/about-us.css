@@ -49,13 +49,16 @@
     border-bottom: 3px solid #A8F2FE;
 }
 
-.nav-home {
+.nav-about {
     border-bottom: 3px solid #A8F2FE;
 }
 
 /* main section */
-#main-section {
-    padding-left: 36px;
+
+main {
+    padding: 36px;
+
+    display: flex;
 }
 
 h1 {
@@ -63,29 +66,13 @@ h1 {
     color: #A8F2FE;
 }
 
-#main-quote {
-    font-size: 28px;
-    font-weight: 200;
-    font-style: italic;
-}
-
-#main-desc {
-    font-size: 32px;
-}
-
-#inquire-button {
-    width: 200px;
-    background-color: #A8F2FE;
-    color: black;
+#main-left {
+    width: 600px;
     font-size: 18px;
-    font-weight: 600;
-    border: none;
-    border-radius: 20px;
-    padding: 18px;
-    margin-top: 18px;
+    text-align: justify;
+    margin-right: auto;
 }
 
-#inquire-button:hover {
-    background-color: white;
-    cursor: pointer;
+#main-logo {
+    width: 400px;
 }
