@@ -10,8 +10,9 @@
     color: white;
 }
 
+/* navigation bar */
 #nav-bar {
-    padding: 12px;
+    padding: 36px;
 
     display: flex;
     align-items: center;
@@ -40,13 +41,47 @@
 
 .nav-text {
     font-size: 22px;
+    padding: 4px;
+    border-bottom: 3px solid #01395E;
 }
 
+.nav-text:hover {
+    border-bottom: 3px solid #A8F2FE;
+}
+
+/* main section */
 #main-section {
-    padding: 12px;
+    padding-left: 36px;
 }
 
 h1 {
     font-size: 64px;
     color: #A8F2FE;
+}
+
+#main-quote {
+    font-size: 28px;
+    font-weight: 200;
+    font-style: italic;
+}
+
+#main-desc {
+    font-size: 32px;
+}
+
+#inquire-button {
+    width: 200px;
+    background-color: #A8F2FE;
+    color: black;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    border-radius: 20px;
+    padding: 18px;
+    margin-top: 18px;
+}
+
+#inquire-button:hover {
+    background-color: white;
+    cursor: pointer;
 }
