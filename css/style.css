@@ -12,7 +12,7 @@
 
 /* navigation bar */
 #nav-bar {
-    padding: 36px;
+    padding: 3rem;
 
     display: flex;
     flex-wrap: wrap;
@@ -28,59 +28,74 @@
     margin-left: auto;
 
     display: flex;
-    gap: 16px;
+    gap: 2rem;
 }
 
 #nav-logo {
-    display: block;
-    max-width: 80px;
-    height: auto;
+    width: 100px;
     border-radius: 50%;
 }
 
 #nav-title {
-    font-size: 28px;
+    font-size: 2rem;
 }
 
 .nav-text {
-    font-size: 22px;
-    padding: 4px;
+    font-size: 1.5rem;
+    padding: 1rem;
     border-bottom: 3px solid #01395E;
 }
 
-.nav-text:hover {
-    border-bottom: 3px solid #A8F2FE;
+.nav-text::after {
+    content: "";
+    height: 3px;
+    width: 0%;
+    background-color: #A8F2FE;
+    display: block;
+    transition: .2s ease-in-out;
 }
 
-.nav-home {
-    border-bottom: 3px solid #A8F2FE;
+.nav-text:hover::after {
+    content: "";
+    height: 3px;
+    width: 100%;
+    background-color: #A8F2FE;
+    display: block;
 }
+
+/* .nav-text:hover {
+    border-bottom: 3px solid #A8F2FE;
+} */
+
+/* .nav-home {
+    border-bottom: 3px solid #A8F2FE;
+} */
 
 /* main section */
 #main-section {
-    padding-left: 36px;
+    padding-left: 3rem;
 }
 
 h1 {
-    font-size: 64px;
+    font-size: 6rem;
     color: #A8F2FE;
 }
 
 #main-quote {
-    font-size: 28px;
+    font-size: 2.8rem;
     font-weight: 200;
     font-style: italic;
 }
 
 #main-desc {
-    font-size: 32px;
+    font-size: 2.5rem;
 }
 
 #inquire-button {
-    width: 200px;
+    width: 14rem;
     background-color: #A8F2FE;
     color: black;
-    font-size: 18px;
+    font-size: 1.3rem;
     font-weight: 600;
     border: none;
     border-radius: 20px;
