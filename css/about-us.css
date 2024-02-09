@@ -63,14 +63,6 @@
     display: block;
 }
 
-/* .nav-text:hover {
-    border-bottom: 3px solid #A8F2FE;
-}
-
-.nav-home {
-    border-bottom: 3px solid #A8F2FE;
-} */
-
 /* main section */
 
 main {
@@ -90,10 +82,6 @@ h1 {
     font-size: 1.5rem;
     text-align: justify;
     margin-right: auto;
-}
-
-#main-right {
-
 }
 
 #main-logo {
