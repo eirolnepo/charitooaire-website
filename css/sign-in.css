@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins;
+
+    background-color: #01395E;
+    color: white;
+}
+
+/* navigation bar */
+#nav-bar {
+    padding: 3rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4rem;
+}
+
+.nav-elements {
+    text-decoration: none;
+}
+
+#nav-right {
+    margin-left: auto;
+
+    display: flex;
+    gap: 2rem;
+}
+
+#nav-logo {
+    width: 100px;
+    border-radius: 50%;
+}
+
+#nav-title {
+    font-size: 2rem;
+}
+
+.nav-text {
+    font-size: 1.5rem;
+    padding: 1rem;
+}
+
+.nav-text::after {
+    content: "";
+    height: 3px;
+    width: 0%;
+    background-color: #A8F2FE;
+    display: block;
+    transition: .2s ease-in-out;
+}
+
+.nav-text:hover::after {
+    content: "";
+    height: 3px;
+    width: 100%;
+    background-color: #A8F2FE;
+    display: block;
+}
+
+/* main section */
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+main a {
+    width: 12rem;
+    border: 3px solid white;
+    padding: 1.2rem;
+    text-decoration: none;
+}
