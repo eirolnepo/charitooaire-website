@@ -43,7 +43,6 @@
 .nav-text {
     font-size: 1.5rem;
     padding: 1rem;
-    border-bottom: 3px solid #01395E;
 }
 
 .nav-text::after {
