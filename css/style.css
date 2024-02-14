@@ -6,13 +6,17 @@
     box-sizing: border-box;
     font-family: Poppins;
 
-    background-color: #01395E;
     color: white;
+}
+
+body {
+    background-color: #01395E;
 }
 
 /* navigation bar */
 #nav-bar {
     padding: 3rem;
+    background-color: #01395E;
 
     display: flex;
     flex-wrap: wrap;
@@ -112,5 +116,25 @@ h1 {
 
 #inquire-btn:hover {
     background-color: white;
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: black;
+    padding: 20px;
+    border-radius: 5px;
+
+    flex-direction: column;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
     cursor: pointer;
 }
