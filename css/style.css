@@ -62,6 +62,22 @@
     display: block;
 }
 
+#sign-in-btn{
+    width: 10rem;
+    background-color: #A8F2FE;
+    color: black;
+    font-size: 1.3rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 20px;
+    padding: 18px;
+}
+
+#sign-in-btn:hover {
+    background-color: white;
+    cursor: pointer;
+}
+
 /* main section */
 #main-section {
     padding-left: 3rem;
@@ -82,7 +98,7 @@ h1 {
     font-size: 2.5rem;
 }
 
-#inquire-button {
+#inquire-btn {
     width: 14rem;
     background-color: #A8F2FE;
     color: black;
@@ -94,7 +110,7 @@ h1 {
     margin-top: 18px;
 }
 
-#inquire-button:hover {
+#inquire-btn:hover {
     background-color: white;
     cursor: pointer;
 }
