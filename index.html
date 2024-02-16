@@ -18,7 +18,7 @@
             <a href="#" class="nav-elements nav-text">Services</a>
             <a href="about-us.html" class="nav-elements nav-text">About Us</a>
             <a href="#" class="nav-elements nav-text">Contact Us</a>
-            <a href="#"><button id="sign-in-btn" onclick="openForm()">Sign In</button></a>
+            <a href="#"><button id="sign-in-btn" onclick="document.getElementById('id01').style.display='block'">Sign In</button></a>
         </div>
     </nav>
 
@@ -28,21 +28,5 @@
         <p id="main-desc">We offer the best assistance <br>for your air conditioning units!</p>
         <a href="#"><button id="inquire-btn">Inquire Now</button></a>
     </main>
-
-    <!-- The login form (popup) -->
-    <div id="myForm" class="modal">
-        <span class="close" onclick="closeForm()">&times;</span>
-        <h2>Login</h2>
-        <form action="/login" method="post">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            <button type="submit">Log in</button>
-            <a href="#">Sign Up</a>
-            <a href="#">Forgot Password?</a>
-            <a href="#">Not a Customer?</a>
-        </form>
-    </div>
 </body>
 </html>
