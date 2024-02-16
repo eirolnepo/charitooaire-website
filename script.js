@@ -1,4 +1,4 @@
-let slideIndex = 0; // Start at index 0
+let slideIndex = 0;
 showSlides();
 
 // Next/previous controls
