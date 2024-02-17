@@ -12,6 +12,22 @@ function closeNewModal() {
     document.getElementById('not-customer-modal').style.display='none';
 }
 
-function doSomething() {
-    // Do something when the "Do Something" button is clicked
+function openAdminModal() {
+    document.getElementById('not-customer-modal').style.display='none';
+    document.getElementById('admin-modal').style.display='block';
+}
+
+function goBackAdmin() {
+    document.getElementById('admin-modal').style.display='none';
+    document.getElementById('not-customer-modal').style.display='block';
+}
+
+function openEmployeeModal() {
+    document.getElementById('not-customer-modal').style.display='none';
+    document.getElementById('employee-modal').style.display='block';
+}
+
+function goBackEmployee() {
+    document.getElementById('employee-modal').style.display='none';
+    document.getElementById('not-customer-modal').style.display='block';
 }

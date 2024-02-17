@@ -139,6 +139,10 @@ h1 {
     border: 1px solid #888;
     width: 30%;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .close, #back-btn {
@@ -229,4 +233,30 @@ b,
 .blue-links {
     color: #0076c4;
     text-decoration: none;
+}
+
+.choice-btn {
+    font-size: 1.5rem;
+    color: white;
+    background-color: #01395E;
+    padding: 1rem;
+    border: none;
+    cursor: pointer;
+}
+
+.choice-btn:hover{
+    opacity: 0.8;
+}
+
+.both-btn {
+    color: white;
+    background-color: #01395E;
+    border: none;
+    cursor: pointer;
+    padding: 14px 20px;
+    margin: 8px 0;
+}
+
+.both-btn:hover {
+    opacity: 0.8;
 }

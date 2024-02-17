@@ -29,6 +29,7 @@
         <a href="#"><button id="inquire-btn">Inquire Now</button></a>
     </main>
 
+    <!-- all modals -->
     <div id="sign-in-modal" class="modal">
     <form class="modal-content animate" action="/action_page.php">
       <div class="container">
@@ -52,15 +53,51 @@
         </div>
       </div>
     </form>
-  </div>
+    </div>
 
-  <div id="not-customer-modal" class="modal" style="display: none;">
+    <div id="not-customer-modal" class="modal" style="display: none;">
     <div class="modal-content">
         <button id="back-btn" onclick="goBack()">&lt&ltBack</button>
         <span onclick="document.getElementById('not-customer-modal').style.display='none'" class="close" title="Close">×</span>
-        <button onclick="doSomething()">Do Something</button>
-        <button onclick="doSomething()">Do Something</button>
+        <div id="btn-container">
+            <button class="choice-btn" onclick="openAdminModal()">Admin</button>
+            <button class="choice-btn" onclick="openEmployeeModal()">Employee</button>
+        </div>
     </div>
-</div>
+    </div>
+
+    <div id="admin-modal" class="modal" style="display: none;">
+    <form class="modal-content animate" action="/action_page.php">
+      <div class="container">
+        <button id="back-btn" onclick="goBackAdmin()">&lt&ltBack</button>
+        <span onclick="document.getElementById('admin-modal').style.display='none'" class="close" title="Close">×</span>
+        <h2 class="text-elements upper-elements sign-in-txt">Admin Sign In</h2>
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" required>
+  
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+  
+        <button class="both-btn" type="submit">Sign In</button>
+      </div>
+    </form>
+    </div>
+
+    <div id="employee-modal" class="modal" style="display: none;">
+        <form class="modal-content animate" action="/action_page.php">
+          <div class="container">
+            <button id="back-btn" onclick="goBackEmployee()">&lt&ltBack</button>
+            <span onclick="document.getElementById('employee-modal').style.display='none'" class="close" title="Close">×</span>
+            <h2 class="text-elements upper-elements sign-in-txt">Employee Sign In</h2>
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required>
+      
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+      
+            <button class="both-btn" type="submit">Sign In</button>
+          </div>
+        </form>
+    </div>
 </body>
 </html>
