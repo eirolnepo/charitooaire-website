@@ -151,9 +151,21 @@ h1 {
 }
 
 .close:hover,
-.close:focus {
+.close:focus,
+#back-btn:hover,
+#back-btn:focus {
   color: red;
   cursor: pointer;
+}
+
+#back-btn {
+    position: absolute;
+    left: 25px;
+    top: 0;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 form {
@@ -170,7 +182,7 @@ input[type=text], input[type=password] {
     color: black;
 }
 
-#id01 button {
+#sign-in-modal button {
     background-color: #01395E;
     color: white;
     padding: 14px 20px;
@@ -180,7 +192,7 @@ input[type=text], input[type=password] {
     width: 100%;
 }
 
-#id01 button:hover {
+#sign-in-modal button:hover {
     opacity: 0.8;
 }
 
