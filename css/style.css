@@ -133,7 +133,7 @@ h1 {
 }
 
 .modal-content {
-    background: linear-gradient(to right, rgb(104, 104, 194), rgb(30, 30, 126));
+    background: white;
     margin: 15% auto;
     padding: 3rem;
     border: 1px solid #888;
@@ -188,9 +188,21 @@ input[type=text], input[type=password] {
     padding: 16px;
 }
 
+.upper-elements{
+    text-align: center;
+}
+
+.sign-in-txt{
+    font-size: 2rem;
+}
+
+.new-user {
+    margin-bottom: 0.8rem;
+}
+
 label,
 b,
-.lower-elements {
+.text-elements {
     color: black;
 }
 
@@ -198,4 +210,9 @@ b,
     display: flex;
     flex-direction: column;
     gap: 0.7rem;
+}
+
+.blue-links {
+    color: #0076c4;
+    text-decoration: none;
 }

@@ -33,6 +33,8 @@
     <form class="modal-content animate" action="/action_page.php">
       <div class="container">
         <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close">×</span>
+        <h2 class="text-elements upper-elements sign-in-txt">Sign In</h2>
+        <p class="text-elements upper-elements new-user">New user? <a href="#" class="text-elements blue-links">Create an account</a></p>
         <label for="uname"><b>Username</b></label>
         <input type="text" placeholder="Enter Username" name="uname" required>
   
@@ -40,14 +42,13 @@
         <input type="password" placeholder="Enter Password" name="psw" required>
   
         <button type="submit">Sign In</button>
-        <button type="submit">Sign Up</button>
 
         <div id="lower-container">
             <label>
                 <input type="checkbox" checked="checked" name="remember"> Remember me
             </label>
-            <a href="#" class="lower-elements">Forgot password?</a>
-            <a href="#" class="lower-elements">Not a customer?</a>
+            <a href="#" class="text-elements blue-links">Forgot password?</a>
+            <a href="#" class="text-elements blue-links">Not a customer?</a>
         </div>
       </div>
     </form>
