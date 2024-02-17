@@ -119,7 +119,7 @@ h1 {
     cursor: pointer;
 }
 
-/* sign-in modal */
+/* all modals */
 .modal {
     display: none;
     position: fixed;
