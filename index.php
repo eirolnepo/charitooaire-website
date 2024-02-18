@@ -29,7 +29,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
     <title>Charitoo Aire</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="imgs/company-logo-circle.png">
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </head>
 <body>
     <nav id="nav-bar">
