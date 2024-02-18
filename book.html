@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Service</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+</head>
+<body>
+    <h1>Book a Service</h1>
+    <p>We look forward to providing you with the best air conditioning service!</p>
+    <form action="php/process-booking.php" method="post">
+        <input type="text" placeholder="Full Name" name="fname" required>
+        <input type="text" placeholder="Full Address" name="faddress" required>
+        <input type="email" placeholder="Email" name="email" required>
+        <input type="number" placeholder="Contact Number" name="connumber" required>
+        <select name="aircontype" id="aircontype" required>
+            <option value="" disabled selected>Select Air Con Type</option>
+            <option value="windowaircon">Window Air Conditioners</option>
+            <option value="splitaircon">Split Air Conditioners</option>
+            <option value="centralaircon">Central Air Conditioners</option>
+            <option value="hybridaircon">Hybrid Air Conditioners</option>
+        </select>
+        <select name="servicetype" id="servicetype" required>
+            <option value="" disabled selected>Select Type of Service</option>
+            <option value="cleaning">Cleaning</option>
+            <option value="repair">Repair</option>
+            <option value="installation">Installation</option>
+            <option value="maintenance">Maintenance</option>
+        </select>
+        <textarea placeholder="Leave a message to specify your concerns" id="message" name="message" rows="4" cols="50" style="resize: none;"></textarea>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
