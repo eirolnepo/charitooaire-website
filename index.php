@@ -1,3 +1,26 @@
+<?php
+
+$is_invalid = false;
+
+if($_SERVER["REQUEST_METHOD"] === "POST") {
+    $mysqli = require __DIR__ . "/php/database.php";
+    $sql = sprintf("SELECT * FROM user
+                    WHERE email = '%s'",
+                    $mysqli->real_escape_string($_POST["email"]));
+    $result = $mysqli->query($sql);
+    $user = $result->fetch_assoc();
+
+    if($user) {
+        if(password_verify($_POST["psw"], $user["password_hash"])) {
+            header("Location: client-signed-in-home.html");
+            exit;
+        }
+    }
+
+    $is_invalid = true;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,13 +54,16 @@
 
     <!-- all modals -->
     <div id="sign-in-modal" class="modal">
-    <form class="modal-content animate" action="/action_page.php">
+    <form class="modal-content animate" method="post">
       <div class="container">
         <span onclick="document.getElementById('sign-in-modal').style.display='none'" class="close" title="Close">×</span>
         <h2 class="text-elements upper-elements sign-in-txt">Sign In</h2>
         <p class="text-elements upper-elements new-user">New user? <a href="#" class="text-elements blue-links" onclick="openSignUpModal()">Create an account</a></p>
-        <label for="uname"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="uname" required>
+        <?php if ($is_invalid) : ?>
+            <p style="color: red;">Invalid Login</p>
+        <?php endif; ?>
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" name="email" required>
   
         <label for="psw"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="psw" required>
@@ -56,7 +82,7 @@
     </div>
 
     <div id="sign-up-modal" class="modal">
-      <form class="modal-content animate" action="/action_page.php">
+      <form class="modal-content animate" action="php/process-signup.php" method="post">
         <div class="container">
           <button id="back-btn" onclick="goBackSignUp()">&lt&ltBack</button>
             <span class="close" onclick="closeSignUpModal()">&times;</span>
