@@ -116,13 +116,13 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
     </div>
 
     <div id="admin-modal" class="modal" style="display: none;">
-    <form class="modal-content animate" action="/action_page.php">
+    <form class="modal-content animate" action="php/admin-signin.php" method="post">
       <div class="container">
         <button id="back-btn" onclick="goBackAdmin()">&lt&ltBack</button>
         <span onclick="document.getElementById('admin-modal').style.display='none'" class="close" title="Close">×</span>
         <h2 class="text-elements upper-elements sign-in-txt">Admin Sign In</h2>
-        <label for="uname"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="uname" required>
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" name="email" required>
   
         <label for="psw"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="psw" required>
@@ -133,13 +133,13 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
     </div>
 
     <div id="employee-modal" class="modal" style="display: none;">
-        <form class="modal-content animate" action="/action_page.php">
+        <form class="modal-content animate" action="php/employee-signin.php" method="post">
           <div class="container">
             <button id="back-btn" onclick="goBackEmployee()">&lt&ltBack</button>
             <span onclick="document.getElementById('employee-modal').style.display='none'" class="close" title="Close">×</span>
             <h2 class="text-elements upper-elements sign-in-txt">Employee Sign In</h2>
-            <label for="uname"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="uname" required>
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Enter Email" name="email" required>
       
             <label for="psw"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="psw" required>
