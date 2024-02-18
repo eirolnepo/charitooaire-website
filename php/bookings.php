@@ -98,6 +98,7 @@ function build_calendar($month, $year){
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 	<style>
+
 		@media only screen and (max-width: 760px), (min-device-width: 802px) and (max-device-width: 1020px) {
 
 			table,
@@ -195,6 +196,7 @@ function build_calendar($month, $year){
 </head>
 <body>
 	<div class="container">
+        <button id="back-btn"><a href="../signed-in-home.html">&lt&ltBack</a></button>
 		<div class="row"> 
 			<div class="col-md-12">
 				<?php

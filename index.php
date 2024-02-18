@@ -12,7 +12,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if($user) {
         if(password_verify($_POST["psw"], $user["password_hash"])) {
-            header("Location: client-signed-in-home.html");
+            header("Location: signed-in-home.html");
             exit;
         }
     }
