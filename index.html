@@ -35,7 +35,7 @@
       <div class="container">
         <span onclick="document.getElementById('sign-in-modal').style.display='none'" class="close" title="Close">×</span>
         <h2 class="text-elements upper-elements sign-in-txt">Sign In</h2>
-        <p class="text-elements upper-elements new-user">New user? <a href="#" class="text-elements blue-links">Create an account</a></p>
+        <p class="text-elements upper-elements new-user">New user? <a href="#" class="text-elements blue-links" onclick="openSignUpModal()">Create an account</a></p>
         <label for="uname"><b>Username</b></label>
         <input type="text" placeholder="Enter Username" name="uname" required>
   
@@ -54,6 +54,29 @@
       </div>
     </form>
     </div>
+
+    <div id="sign-up-modal" class="modal">
+      <form class="modal-content animate" action="/action_page.php">
+        <div class="container">
+          <button id="back-btn" onclick="goBackSignUp()">&lt&ltBack</button>
+            <span class="close" onclick="closeSignUpModal()">&times;</span>
+          <h2 class="text-elements upper-elements sign-in-txt">Sign Up</h2>
+          <label for="email"><b>Email</b></label>
+          <input type="email" placeholder="Enter Email" name="email" required>
+
+          <label for="uname"><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" name="uname" required>
+    
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+
+          <label for="rppsw"><b>Repeat Password</b></label>
+          <input type="password" placeholder="Repeat Password" name="rppsw" required>
+    
+          <button class="both-btn" type="submit">Sign Up</button>
+        </div>
+      </form>
+  </div>
 
     <div id="not-customer-modal" class="modal" style="display: none;">
     <div class="modal-content">

@@ -1,3 +1,17 @@
+function openSignUpModal() {
+    document.getElementById('sign-in-modal').style.display='none';
+    document.getElementById('sign-up-modal').style.display = 'block';
+}
+
+function closeSignUpModal() {
+    document.getElementById('sign-up-modal').style.display = 'none';
+}
+
+function goBackSignUp() {
+    document.getElementById('sign-up-modal').style.display='none';
+    document.getElementById('sign-in-modal').style.display='block';
+}
+
 function openNewModal() {
     document.getElementById('sign-in-modal').style.display='none';
     document.getElementById('not-customer-modal').style.display='block';
