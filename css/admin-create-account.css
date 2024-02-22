@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins;
+
+    color: #01395E; 
+}
+
+body {
+    background-color:  white ; 
+}
+
+/* navigation bar */
+#nav-bar {
+    padding: 3rem;
+    background-color: white; 
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4rem;
+}
+
+.nav-elements {
+    text-decoration: none;
+}
+
+#nav-right {
+    margin-left: auto;
+
+    display: flex;
+    gap: 0.2rem;
+}
+
+#nav-logo {
+    width: 100px;
+    border-radius: 50%;
+}
+
+#nav-title {
+    font-size: 2rem;
+}
+
+.nav-text {
+    font-size: 1.5rem;
+    padding: 1rem;
+}
+
+.nav-text::after {
+    content: "";
+    height: 3px;
+    width: 0%;
+    background-color: #01395E;
+    display: block;
+    transition: .2s ease-in-out;
+}
+
+.nav-text:hover::after {
+    content: "";
+    height: 3px;
+    width: 100%;
+    background-color: #01395E;
+    display: block;
+}
+
+main {
+    padding-left: 25rem;
+    float: left;
+
+  }
+
+/* Form */
+.form-container {
+    float:inline-start;  
+      
+  }
+  .containerAdmin {
+      width: 500px;
+      height: 450px;
+      background: linear-gradient(
+        45deg,
+        rgb(16, 137, 211) 0%,
+        rgb(18, 177, 209) 100%
+      );
+      border-radius: 30px;
+      padding: 25px 35px;
+      margin: 20px;
+    }
+    
+    .heading {
+      text-align: center;
+      font-weight: 900;
+      font-size: 30px;
+      color:#01395E;
+      
+    }
+    
+    .form-login {
+      position: sticky;
+      margin-top: 20px;
+    }
+    
+    .form-login .input {
+      width: 100%;
+      background: white;
+      border: none;
+      padding: 15px 1px;
+      border-radius: 10px;
+      margin-top: 15px;
+      border-inline: 20px solid transparent;
+      
+    }
+    
+    .form-login .input::-moz-placeholder {
+      color: black;
+    }
+    
+    .form-login .input::placeholder {
+      color: black;
+    }
+  
+    .form-login .login-button{
+      display: block;
+      width: 100%;
+      font-weight: bold;
+      background:#01395E;
+      color:white;
+      padding-block: 15px;
+      margin: 20px auto;
+      border-radius: 10px;
+
+      border: none;
+      transition: all 0.2s ease-in-out;
+    }
+    
+    .form-login .login-button:hover {
+      transform: scale(1.03);
+      box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 23px 10px -20px;
+    }
+    
+    .form-login .login-button:active {
+      transform: scale(0.95);
+      box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 15px 10px -10px;
+    }
