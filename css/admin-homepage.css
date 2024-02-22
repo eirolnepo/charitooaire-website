@@ -6,17 +6,17 @@
     box-sizing: border-box;
     font-family: Poppins;
 
-    color: #01395E; /*#01395E*/
+    color: #01395E; 
 }
 
 body {
-    background-color:  white ; /* white */
+    background-color:  white ; 
 }
 
 /* navigation bar */
 #nav-bar {
     padding: 3rem;
-    background-color: white; /* white */
+    background-color: white; 
 
     display: flex;
     flex-wrap: wrap;
