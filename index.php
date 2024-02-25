@@ -1,26 +1,3 @@
-<?php
-
-$is_invalid = false;
-
-if($_SERVER["REQUEST_METHOD"] === "POST") {
-    $mysqli = require __DIR__ . "/php/database.php";
-    $sql = sprintf("SELECT * FROM user
-                    WHERE email = '%s'",
-                    $mysqli->real_escape_string($_POST["email"]));
-    $result = $mysqli->query($sql);
-    $user = $result->fetch_assoc();
-
-    if($user) {
-        if(password_verify($_POST["psw"], $user["password_hash"])) {
-            header("Location: signed-in-home.html");
-            exit;
-        }
-    }
-
-    $is_invalid = true;
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,11 +10,11 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 <body>
     <nav id="nav-bar">
-        <a href="index.html"><img src="imgs/company-logo-circle.png" alt="logo of charitooaire" id="nav-logo"></a>
-        <a href="index.html" class="nav-elements" id="nav-title">CharitooAire Air Conditioning</a>
+        <a href="index.php"><img src="imgs/company-logo-circle.png" alt="logo of charitooaire" id="nav-logo"></a>
+        <a href="index.php" class="nav-elements" id="nav-title">CharitooAire Air Conditioning</a>
 
         <div id="nav-right">
-            <a href="index.html" class="nav-elements nav-text nav-home">Home</a>
+            <a href="index.php" class="nav-elements nav-text nav-home">Home</a>
             <a href="#" class="nav-elements nav-text">Services</a>
             <a href="about-us.html" class="nav-elements nav-text">About Us</a>
             <a href="#" class="nav-elements nav-text">Contact Us</a>
@@ -54,14 +31,11 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <!-- all modals -->
     <div id="sign-in-modal" class="modal">
-    <form class="modal-content animate" method="post">
+    <form class="modal-content animate" action="php/client-signin.php" method="post">
       <div class="container">
         <span onclick="document.getElementById('sign-in-modal').style.display='none'" class="close" title="Close">×</span>
         <h2 class="text-elements upper-elements sign-in-txt">Sign In</h2>
         <p class="text-elements upper-elements new-user">New user? <a href="#" class="text-elements blue-links" onclick="openSignUpModal()">Create an account</a></p>
-        <?php if ($is_invalid) : ?>
-            <p style="color: red;">Invalid Login</p>
-        <?php endif; ?>
         <label for="email"><b>Email</b></label>
         <input type="text" placeholder="Enter Email" name="email" required>
   
