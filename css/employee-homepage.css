@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins;
+
+    color: #01395E; 
+}
+
+body {
+    background-color:  white ; 
+}
+
+/* navigation bar */
+#nav-bar {
+    padding: 3rem;
+    background-color: white; 
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4rem;
+}
+
+.nav-elements {
+    text-decoration: none;
+}
+
+#nav-right {
+    margin-left: auto;
+
+    display: flex;
+    gap: 0.2rem;
+}
+
+#nav-logo {
+    width: 100px;
+    border-radius: 50%;
+}
+
+#nav-title {
+    font-size: 2rem;
+}
+
+.nav-text {
+    font-size: 1.5rem;
+    padding: 1rem;
+}
+
+.nav-text::after {
+    content: "";
+    height: 3px;
+    width: 0%;
+    background-color: #01395E;
+    display: block;
+    transition: .2s ease-in-out;
+}
+
+.nav-text:hover::after {
+    content: "";
+    height: 3px;
+    width: 100%;
+    background-color: #01395E;
+    display: block;
+}
+
+#main-section {
+    padding-left: 3rem;
+}
+
+h1 {
+    font-size: 6rem;
+    color: #01395E; /*#01395E*/
+}
+
+#main-quote {
+    font-size: 2.8rem;
+    font-weight: 200;
+    font-style: italic;
+    color: #01395E; /*#01395E*/
+}
+
+#main-desc {
+    font-size: 2.5rem;
+    color: black; /*Black*/
+}
+
+a {
+    text-decoration: none;
+}
+
+.services-text {
+    font-size: 1.1rem;
+    color: black;
+}
+
+.services-containers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    margin-top: 2rem;
+}
+
+.services-container {
+    width: 20rem;
+    height: 20rem;
+    background-color: #A8F2FE;
+    border-radius: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.service {
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+}
+
+.services-container img {
+    width: 6rem;
+}
