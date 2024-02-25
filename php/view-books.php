@@ -17,7 +17,7 @@
             <a href="../admin-create-account.html" class="nav-elements nav-text">Create Account</a>
             <a href="view-books.php" class="nav-elements nav-text">Database</a>
             <a href="bookings.php" class="nav-elements nav-text">Calendar</a>
-            <a href="index.php" class="nav-elements nav-text">Log Out</a>
+            <a href="../index.php" class="nav-elements nav-text">Log Out</a>
         </div>
     </nav>
 

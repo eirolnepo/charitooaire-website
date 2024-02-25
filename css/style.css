@@ -119,6 +119,12 @@ h1 {
     cursor: pointer;
 }
 
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* all modals */
 .modal {
     display: none;
