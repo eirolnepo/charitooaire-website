@@ -109,7 +109,7 @@ function build_calendar($month, $year) {
 
             //NEED NG DB KAYA NAKACOMMENT MUNA HEHE
 
-         $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='book.php?date=".$date."' class='btn btn-success btn-xs'>Book</a>";
+         $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='../book.html?date=".$date."' class='btn btn-success btn-xs'>Book</a>";
             
             
            
@@ -257,7 +257,6 @@ function build_calendar($month, $year) {
 
 <body>
     <div class="container">
-        <button id="back-btn"><a href="../signed-in-home.html">&lt&ltBack</a></button>
         <div class="row">
             <div class="col-md-12">
                 <?php

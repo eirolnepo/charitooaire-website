@@ -133,7 +133,11 @@ h1 {
 }
 
 .modal-content {
-    background: white;
+    background: linear-gradient(
+      45deg,
+      rgb(16, 137, 211) 0%,
+      rgb(18, 177, 209) 100%
+    );
     margin: 15% auto;
     padding: 3rem;
     border: 1px solid #888;
@@ -163,7 +167,7 @@ h1 {
     left: 25px;
     font-size: 20px;
     border: none;
-    background-color: white;
+    background: none;
 }
 
 .close:hover,
@@ -221,7 +225,7 @@ input[type=text], input[type=password], input[type=email] {
 label,
 b,
 .text-elements {
-    color: black;
+    color: #01395E;
 }
 
 #lower-container {
@@ -231,7 +235,7 @@ b,
 }
 
 .blue-links {
-    color: #0076c4;
+    color: white;
     text-decoration: none;
 }
 

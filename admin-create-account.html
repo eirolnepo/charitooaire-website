@@ -23,16 +23,16 @@
             <a href="index.php" class="nav-elements nav-text">Log Out</a>
         </div>
     </nav>
+    
     <main>
         <div class="form-container">
             <div class="containerAdmin">
-                <div class="heading">Employee <br> Account</div>
-                <form class="form-login" action="">
-                    <input placeholder="Email" id="email" name="email" type="email" class="input" required="">
-                    <input placeholder="Password" id="password" name="password" type="password" class="input"
-                        required="">
-                    <input placeholder="Confirm Password" id="confirm-password" name="password" type="password"
-                        class="input" required="">
+                <h2>Employee Account</h2>
+                <form class="form-login" action="php/employee-create-acc.php" method="post">
+                    <input placeholder="Email" type="email" name="email" id="email" class="input" required>
+                    <input placeholder="Username" type="text" name="uname" id="username" class="input" required>
+                    <input placeholder="Password" type="password" name="psw" id="password" class="input" required>
+                    <input placeholder="Confirm Password" type="password" name="rppsw" id="confirm-password" class="input" required>
                     <input value="Create" type="submit" class="form-login login-button">
                 </form>
             </div>

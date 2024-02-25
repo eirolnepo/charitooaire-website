@@ -1,4 +1,15 @@
-CREATE DATABASE login_db;
+CREATE DATABASE employee_db;
+
+CREATE TABLE employees(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255),
+    email VARCHAR(255) UNIQUE,
+    password_hash VARCHAR(255)
+);
+
+DROP TABLE employees;
+
+CREATE DATABASE user_db;
 
 CREATE TABLE user(
 	id INT PRIMARY KEY AUTO_INCREMENT,
