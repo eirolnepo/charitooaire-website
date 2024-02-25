@@ -82,32 +82,6 @@ body {
     cursor: pointer;
 }
 
-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#content-container {
-    width: 60%;
-}
-
-#content-container h2 {
-    color: #A8F2FE;
-    text-align: center;
-    font-size: 3.5rem;
-}
-
-.desc {
-    text-align: justify;
-    font-size: 1.5rem;
-}
-
-.services-text {
-    font-size: 1.1rem;
-    color: black;
-}
-
 .services-containers {
     display: flex;
     justify-content: center;
@@ -138,6 +112,11 @@ main {
 
 .services-container img {
     width: 6rem;
+}
+
+h2 {
+    font-size: 5rem;
+    text-align: center;
 }
 
 /* all modals */

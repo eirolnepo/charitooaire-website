@@ -17,7 +17,7 @@
             <a href="index.php" class="nav-elements nav-text nav-home">Home</a>
             <a href="services.html" class="nav-elements nav-text">Services</a>
             <a href="about-us.html" class="nav-elements nav-text">About Us</a>
-            <a href="#" class="nav-elements nav-text">Contact Us</a>
+            <a href="contact-us.html" class="nav-elements nav-text">Contact Us</a>
             <a href="#"><button id="sign-in-btn" onclick="document.getElementById('sign-in-modal').style.display='block'">Sign In</button></a>
         </div>
     </nav>
