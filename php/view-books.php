@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Database</title>
-    <link rel="stylesheet" href="css/view-books.css">
+    <link rel="stylesheet" href="../css/view-books.css">
+    <link rel="icon" href="../imgs/company-logo-circle.png">
 </head>
 <body>
 <nav id="nav-bar">
-        <a href="index.php"><img src="imgs/company-logo-circle.png" alt="logo of charitooaire" id="nav-logo"></a>
+        <a href="index.php"><img src="../imgs/company-logo-circle.png" alt="logo of charitooaire" id="nav-logo"></a>
         <a href="index.php" class="nav-elements" id="nav-title">CharitooAire Air Conditioning</a>
 
         <div id="nav-right">
-            <a href="admin-homepage.html" class="nav-elements nav-text nav-home">Home</a>
-            <a href="admin-create-account.html" class="nav-elements nav-text">Create Account</a>
+            <a href="../admin-homepage.html" class="nav-elements nav-text nav-home">Home</a>
+            <a href="../admin-create-account.html" class="nav-elements nav-text">Create Account</a>
             <a href="view-books.php" class="nav-elements nav-text">Database</a>
-            <a href="php/bookings.php" class="nav-elements nav-text">Calendar</a>
+            <a href="bookings.php" class="nav-elements nav-text">Calendar</a>
             <a href="index.php" class="nav-elements nav-text">Log Out</a>
         </div>
     </nav>
@@ -29,7 +30,7 @@
                             <h2 class="pull-left">Bookings</h2>
                         </div>
                         <?php
-                        include_once 'php\book-db.php';
+                        include_once 'book-db.php';
                         $result = mysqli_query($mysqli,"SELECT * FROM bookings");
                         ?>
 
