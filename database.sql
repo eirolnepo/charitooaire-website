@@ -34,3 +34,12 @@ CREATE TABLE bookings(
 );
 
 DROP TABLE bookings;
+
+CREATE DATABASE calendar_db;
+
+CREATE TABLE bookings(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    date VARCHAR(255)
+);
+
+DROP TABLE bookings;
