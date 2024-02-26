@@ -77,5 +77,106 @@
             </div>
         </div>
     </main>
+
+    <main>
+        <div class="db-container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="page-header clearfix">
+                            <h2 class="pull-left">Users</h2>
+                        </div>
+                        <?php
+                        include_once 'client-db.php';
+                        $result = mysqli_query($mysqli,"SELECT * FROM user");
+                        ?>
+
+                        <?php
+                        if (mysqli_num_rows($result) > 0) {
+                        ?>
+                        <table class='table table-bordered table-striped'>
+                        
+                        <tr>
+                            <td>Full Name</td>
+                            
+                            <td>Email</td>
+                            <td>Password</td>
+                        </tr>
+                        <?php
+                        $i=0;
+                        while($row = mysqli_fetch_array($result)) {
+                        ?>
+                        <tr>
+                            <td><?php echo $row["name"]; ?></td>
+                            
+                            <td><?php echo $row["email"]; ?></td>
+                            <td><?php echo $row["password_hash"]; ?></td>
+                        </tr>
+                        <?php
+                        $i++;
+                        }
+                        ?>
+                        </table>
+                        <?php
+                        }
+                        else{
+                            echo "No result found";
+                        }
+                        ?>
+                    </div>
+                </div>        
+            </div>
+        </div>
+    </main>
+
+    <main>
+        <div class="db-container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="page-header clearfix">
+                            <h2 class="pull-left">Employees</h2>
+                        </div>
+                        <?php
+                        include_once 'employees-db.php';
+                        $result = mysqli_query($mysqli,"SELECT * FROM employees");
+                        ?>
+
+                        <?php
+                        if (mysqli_num_rows($result) > 0) {
+                        ?>
+                        <table class='table table-bordered table-striped'>
+                        
+                        <tr>
+                            <td>Full Name</td>
+                            
+                            <td>Email</td>
+                            <td>Password</td>
+                        </tr>
+                        <?php
+                        $i=0;
+                        while($row = mysqli_fetch_array($result)) {
+                        ?>
+                        <tr>
+                            <td><?php echo $row["name"]; ?></td>
+                            <td><?php echo $row["email"]; ?></td>
+                            <td><?php echo $row["password_hash"]; ?></td>
+                        </tr>
+                        <?php
+                        $i++;
+                        }
+                        ?>
+                        </table>
+                        <?php
+                        }
+                        else{
+                            echo "No result found";
+                        }
+                        ?>
+                    </div>
+                </div>        
+            </div>
+        </div>
+    </main>
 </body>
 </html>
