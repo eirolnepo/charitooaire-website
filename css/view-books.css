@@ -67,7 +67,7 @@ body {
 }
 
 main {
-    display: flex;
+    display:contents;
     justify-content: center;
     align-items: center;
 }
@@ -85,3 +85,11 @@ table {
 td {
     padding: 10px 10px;
 }
+
+/*Accordion*/
+.accordion {
+    left: 5%;
+    position: absolute  ;
+    width: 90%;
+}
+
