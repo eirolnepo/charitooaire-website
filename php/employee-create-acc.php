@@ -15,9 +15,9 @@ if ($_POST["psw"] !== $_POST["rppsw"]) {
 
 $password_hash = password_hash($_POST["psw"], PASSWORD_DEFAULT);
 
-$mysqli = require __DIR__ ."/client-db.php";
+$mysqli = require __DIR__ ."/employees-db.php";
 
-$sql = "INSERT INTO user (name, email, password_hash)
+$sql = "INSERT INTO employees (name, email, password_hash)
         VALUES (?, ?, ?)";
 
 $stmt = $mysqli->stmt_init();
@@ -29,7 +29,6 @@ if(!$stmt->prepare($sql)) {
 $stmt->bind_param("sss", $_POST["uname"], $_POST["email"], $password_hash);
 
 if($stmt->execute()) {
-    header("Location: ../signed-in-home.html");
     exit;
 } else {
     if($mysqli->errno === 1062) {

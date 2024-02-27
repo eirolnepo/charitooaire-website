@@ -82,47 +82,62 @@ body {
     cursor: pointer;
 }
 
-/* main section */
-#main-section {
-    padding-left: 3rem;
-}
-
-h1 {
-    font-size: 6rem;
-    color: #A8F2FE;
-}
-
-#main-quote {
-    font-size: 2.8rem;
-    font-weight: 200;
-    font-style: italic;
-}
-
-#main-desc {
-    font-size: 2.5rem;
-}
-
-#inquire-btn {
-    width: 14rem;
-    background-color: #A8F2FE;
-    color: black;
-    font-size: 1.3rem;
-    font-weight: 600;
-    border: none;
-    border-radius: 20px;
-    padding: 18px;
-    margin-top: 18px;
-}
-
-#inquire-btn:hover {
-    background-color: white;
-    cursor: pointer;
-}
-
 main {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#content-container {
+    width: 60%;
+}
+
+#content-container h2 {
+    color: #A8F2FE;
+    text-align: center;
+    font-size: 3.5rem;
+}
+
+.desc {
+    text-align: justify;
+    font-size: 1.5rem;
+}
+
+.services-text {
+    font-size: 1.1rem;
+    color: black;
+}
+
+.services-containers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    margin-top: 2rem;
+}
+
+.services-container {
+    width: 20rem;
+    height: 20rem;
+    background-color: #A8F2FE;
+    border-radius: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.service {
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+}
+
+.services-container img {
+    width: 6rem;
 }
 
 /* all modals */

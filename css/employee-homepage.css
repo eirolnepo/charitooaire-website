@@ -86,3 +86,44 @@ h1 {
     font-size: 2.5rem;
     color: black; /*Black*/
 }
+
+a {
+    text-decoration: none;
+}
+
+.services-text {
+    font-size: 1.1rem;
+    color: black;
+}
+
+.services-containers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    margin-top: 2rem;
+}
+
+.services-container {
+    width: 20rem;
+    height: 20rem;
+    background-color: #A8F2FE;
+    border-radius: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.service {
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+}
+
+.services-container img {
+    width: 6rem;
+}
