@@ -66,73 +66,64 @@ body {
     display: block;
 }
 
-main {
+#main-section {
+    padding-left: 3rem;
+}
+
+h1 {
+    font-size: 6rem;
+    color: #01395E; /*#01395E*/
+}
+
+#main-quote {
+    font-size: 2.8rem;
+    font-weight: 200;
+    font-style: italic;
+    color: #01395E; /*#01395E*/
+}
+
+#main-desc {
+    font-size: 2.5rem;
+    color: black; /*Black*/
+}
+
+a {
+    text-decoration: none;
+}
+
+.services-text {
+    font-size: 1.1rem;
+    color: black;
+}
+
+.services-containers {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    margin-top: 2rem;
+}
+
+.services-container {
+    width: 20rem;
+    height: 20rem;
+    background-color: #A8F2FE;
+    border-radius: 20%;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-/* Form */
-.form-container {
-    float:inline-start;
+.service {
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
 }
 
-.containerAdmin {
-    width: 50rem;
-    background: linear-gradient(
-      45deg,
-      rgb(16, 137, 211) 0%,
-      rgb(18, 177, 209) 100%
-    );
-    border-radius: 30px;
-    padding: 50px 50px;
-    margin: 20px;
-}
-    
-h2 {
-    text-align: center;
-    font-weight: 900;
-    font-size: 3rem;
-    color:#01395E;
-}
-    
-.form-login {
-    position: sticky;
-    margin-top: 20px;
-}
-    
-.form-login .input {
-    width: 100%;
-    background: white;
-    border: none;
-    padding: 15px 1px;
-    border-radius: 10px;
-    margin-top: 15px;
-    border-inline: 20px solid transparent;  
-}
-    
-.form-login .input::-moz-placeholder {
-    color: black;
-}
-    
-.form-login .input::placeholder {
-    color: black;
-}
-  
-.login-button{
-    display: block;
-    width: 100%;
-    font-weight: bold;
-    background:#01395E;
-    color:white;
-    padding-block: 15px;
-    margin: 20px auto;
-    border-radius: 10px;
-
-    border: none;
-    transition: all 0.2s ease-in-out;
-}
-    
-.login-button:hover {
-    cursor: pointer;
+.services-container img {
+    width: 6rem;
 }

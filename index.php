@@ -15,18 +15,20 @@
 
         <div id="nav-right">
             <a href="index.php" class="nav-elements nav-text nav-home">Home</a>
-            <a href="#" class="nav-elements nav-text">Services</a>
+            <a href="services.html" class="nav-elements nav-text">Services</a>
             <a href="about-us.html" class="nav-elements nav-text">About Us</a>
-            <a href="#" class="nav-elements nav-text">Contact Us</a>
+            <a href="contact-us.html" class="nav-elements nav-text">Contact Us</a>
             <a href="#"><button id="sign-in-btn" onclick="document.getElementById('sign-in-modal').style.display='block'">Sign In</button></a>
         </div>
     </nav>
 
     <main id="main-section">
+      <div id="content-container">
         <h1>Air Conditioning <br>Services</h1>
         <p id="main-quote">"Your breeze of Peace and Comfort"</p><br><br>
         <p id="main-desc">We offer the best assistance <br>for your air conditioning units!</p>
         <a href="#"><button id="inquire-btn">Inquire Now</button></a>
+      </div>
     </main>
 
     <!-- all modals -->
