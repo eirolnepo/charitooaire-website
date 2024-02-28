@@ -69,17 +69,15 @@ function build_calendar($month, $year) {
             $dayname = strtolower(date('l', strtotime($date)));
             $eventNum = 0;
             $today = $date==date('Y-m-d')? "today" : "";
-         if($date<date('Y-m-d')){
-             $calendar.="<td><h4>$currentDay</h4> <button class='btn btn-danger btn-xs'>N/A</button>";
-         }elseif(in_array($date, $bookings)){
-             $calendar.="<td class='$today'><h4>$currentDay</h4> <button class='btn btn-danger btn-xs'>Already Booked</button>";
-         }else{
-             $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='book.html?date=".$date."' class='btn btn-success btn-xs'>Book</a>";
-         }
-            //NEED NG DB KAYA NAKACOMMENT MUNA HEHE
-
-         //$calendar.="<td class='$today'><h4>$currentDay</h4> <a href='book.php?date=".$date."' class='btn btn-success btn-xs'>Book</a>";
-            
+            if ($dayname=='sunday') {
+                $calendar.="<td><h4>$currentDay</h4> <button class='btn btn-danger btn-xs'>Holiday</button>";
+            }elseif($date<date('Y-m-d')){
+               $calendar.="<td><h4>$currentDay</h4> <button class='btn btn-danger btn-xs'>N/A</button>";
+            }elseif(in_array($date, $bookings)){
+               $calendar.="<td class='$today'><h4>$currentDay</h4> <button class='btn btn-danger btn-xs'>Already Booked</button>";
+            }else{
+               $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='book.php?date=".$date."' class='btn btn-success btn-xs'>Book</a>";
+            }  
             
            
             
