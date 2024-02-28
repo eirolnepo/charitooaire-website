@@ -91,14 +91,19 @@ body {
 }
 
 .services-container {
-    width: 20rem;
-    height: 20rem;
+    width: 15rem;
+    height: 15rem;
     background-color: #A8F2FE;
     border-radius: 20%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.services-container:hover {
+    background-color: white;
+    cursor: pointer;
 }
 
 .service {
@@ -116,6 +121,23 @@ body {
 
 h2 {
     font-size: 5rem;
+    text-align: center;
+    
+}
+
+/* copyright */
+
+.space {
+    height: 100px;
+}
+
+.copyright {
+    background: #A8F2FE;
+    height: 50px;
+}
+
+h3 {
+    color: #01395E;
     text-align: center;
 }
 
@@ -264,3 +286,5 @@ b,
 .both-btn:hover {
     opacity: 0.8;
 }
+
+
