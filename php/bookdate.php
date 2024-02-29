@@ -15,7 +15,6 @@ $date = isset($_GET['date']) ? $_GET['date'] : date('F j, Y');
   </head>
 
   <body>
-    <!-- <button onclick="history.back()">&lt&lt Back</button> -->
     <button id="back-btn"><a href="bookings.php">&lt&ltBack</a></button>
     <div class="container">
         <h1 class="text-center">Book a Service for <?php echo date('F j, Y', strtotime($date)); ?></h1><hr><br>
