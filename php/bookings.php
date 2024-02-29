@@ -77,7 +77,7 @@ function build_calendar($month, $year) {
             }elseif(in_array($date, $bookings)){
                $calendar.="<td class='$today'><h4>$currentDay</h4> <button class='btn btn-danger btn-xs'>Already Booked</button>";
             }else{
-               $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='book.php?date=".$date."' class='btn btn-success btn-xs'>Book</a>";
+               $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='book-date.php?date=".$date."' class='btn btn-success btn-xs'>Book</a>";
             }  
             
            
