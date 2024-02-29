@@ -192,6 +192,7 @@ function build_calendar($month, $year) {
 </head>
 <body>
     <div class="container">
+        <button id="back-btn"><a href="../signed-in-home.html">&lt&ltBack</a></button>
         <div class="row">
             <div class="col-md-12">
                 <?php
