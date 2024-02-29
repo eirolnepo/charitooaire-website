@@ -23,7 +23,7 @@ $date = isset($_GET['date']) ? $_GET['date'] : date('F j, Y');
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                <?php echo isset($msg)?$msg:''; ?>
-                <form action="" method="post" autocomplete="off">
+                <form action="php/process-booking.php" method="post">
                     <input type="text" placeholder="Full Name" name="fname" required>
                     <input type="text" placeholder="Full Address" name="faddress" required>
                     <input type="email" placeholder="Email" name="email" required>
