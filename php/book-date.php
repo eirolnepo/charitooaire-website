@@ -1,6 +1,28 @@
 <?php
 
-$date = isset($_GET['date']) ? $_GET['date'] : date('F j, Y');
+if (isset($_GET['date'])) {
+  $date = $_GET['date'];
+}
+
+
+//for date of bookings
+if(isset($_POST["submit"])){
+    $name = $_POST["fname"];
+    $address = $_POST["faddress"];
+    $email = $_POST["email"];
+    $number = $_POST["connumber"];
+    $aircontype = $_POST["aircontype"];
+    $servicetype = $_POST["servicetype"];
+    $message = $_POST["message"];
+    $mysqli = new mysqli('localhost', 'root', '', 'book_db');
+    $stmt = $mysqli->prepare("INSERT INTO bookings (fullName, fullAddress, email, contactNum, airconType, serviceType, message, Date)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param('sssissss', $name, $address, $email, $number, $aircontype, $servicetype, $message, $date);
+    $stmt->execute();
+    $msg = "<div class='alert alert-success role='alert'>Booking Successful!</div>";
+    $stmt->close();
+    $mysqli->close();
+}
 
 ?>
 
@@ -10,7 +32,8 @@ $date = isset($_GET['date']) ? $_GET['date'] : date('F j, Y');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
   </head>
 
@@ -22,7 +45,7 @@ $date = isset($_GET['date']) ? $_GET['date'] : date('F j, Y');
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                <?php echo isset($msg)?$msg:''; ?>
-                <form action="process-booking.php" method="post">
+                <form action="" method="post">
                     <input type="text" placeholder="Full Name" name="fname" required>
                     <input type="text" placeholder="Full Address" name="faddress" required>
                     <input type="email" placeholder="Email" name="email" required>
@@ -48,6 +71,8 @@ $date = isset($_GET['date']) ? $_GET['date'] : date('F j, Y');
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+    crossorigin="anonymous"></script>
   </body>
 
 </html>
