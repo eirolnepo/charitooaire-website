@@ -57,6 +57,7 @@
                             <th>Aircon Type</th>
                             <th>Service Type</th>
                             <th>Message</th>
+                            <th>Date</th>
                         </tr>
                         </thead>
                         <?php
@@ -72,6 +73,7 @@
                             <td><?php echo $row["airconType"]; ?></td>
                             <td><?php echo $row["serviceType"]; ?></td>
                             <td><?php echo $row["message"]; ?></td>
+                            <td><?php echo $row["date"]; ?></td>
                         </tr>
                         </tbody>
                         <?php
