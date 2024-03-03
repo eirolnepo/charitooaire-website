@@ -8,7 +8,7 @@ function build_calendar($month, $year) {
         $result = $stmt->get_result();
         if($result->num_rows>0){
             while($row = $result->fetch_assoc()){
-                $bookings[] = $row['Date'];
+                $bookings[] = $row['date'];
             }
             
             $stmt->close();
@@ -106,7 +106,24 @@ function build_calendar($month, $year) {
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <title>Charitoo Aire</title>
+    <link rel="icon" href="../imgs/company-logo-circle.png">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Poppins;
+
+            color: black;
+        }
+
+        body {
+            background-color: white;
+        }
+
        @media only screen and (max-width: 760px),
         (min-device-width: 802px) and (max-device-width: 1020px) {
             table, thead, tbody, th, td, tr {
@@ -187,14 +204,22 @@ function build_calendar($month, $year) {
         
         .today{
             background:#80D9FF;
-        }  
+        }
+        
+        #back-btn {
+            background-color: white;
+            border: none;
+            text-decoration: none;
+            color: black;
+            font-size: 1.8rem;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <button id="back-btn"><a href="../signed-in-home.html">&lt&ltBack</a></button>
         <div class="row">
             <div class="col-md-12">
+        <button class="back-btn-border"><a href="../employee-homepage.html" id="back-btn">Back</a></button>
                 <?php
                      $dateComponents = getdate();
                      if(isset($_GET['month']) && isset($_GET['year'])){
