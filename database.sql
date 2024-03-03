@@ -1,3 +1,13 @@
+CREATE DATABASE admin_db;
+
+CREATE TABLE admin(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    email VARCHAR(255),
+    password_hash VARCHAR(255)
+);
+
+DROP TABLE admin;
+
 CREATE DATABASE employee_db;
 
 CREATE TABLE employees(

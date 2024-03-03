@@ -121,9 +121,7 @@
                         <thead>
                         <tr>
                             <th>Full Name</th>
-                            
                             <th>Email</th>
-                            <th>Password</th>
                         </tr>
                         </thead>
                         <?php
@@ -133,9 +131,7 @@
                         <tbody>
                         <tr>
                             <td><?php echo $row["name"]; ?></td>
-                            
                             <td><?php echo $row["email"]; ?></td>
-                            <td><?php echo $row["password_hash"]; ?></td>
                         </tr>
                         </tbody>
                         <?php
@@ -184,7 +180,6 @@
                         <tr>
                             <td>Full Name</td>
                             <td>Email</td>
-                            <td>Password</td>
                         </tr>
                         </thead>
                         <?php
@@ -195,7 +190,6 @@
                         <tr>
                             <td><?php echo $row["name"]; ?></td>
                             <td><?php echo $row["email"]; ?></td>
-                            <td><?php echo $row["password_hash"]; ?></td>
                         </tr>
                         </tbody>
                         <?php
@@ -217,8 +211,7 @@
     </div>
   </div>
 </div>
-    </main>
-
+</main>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 </body>

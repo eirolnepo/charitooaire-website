@@ -1,7 +1,7 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $mysqli = require __DIR__ . "/employees-db.php";
-    $sql = sprintf("SELECT * FROM employees
+    $mysqli = require __DIR__ . "/admin-db.php";
+    $sql = sprintf("SELECT * FROM admin
                     WHERE email = '%s'",
                     $mysqli->real_escape_string($_POST["email"]));
     $result = $mysqli->query($sql);
