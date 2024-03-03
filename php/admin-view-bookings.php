@@ -186,7 +186,7 @@ function build_calendar($month, $year) {
         }
         
         .today{
-            background:yellow;
+            background:#80D9FF;
         }  
     </style>
 </head>
