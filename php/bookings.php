@@ -8,7 +8,7 @@ function build_calendar($month, $year) {
         $result = $stmt->get_result();
         if($result->num_rows>0){
             while($row = $result->fetch_assoc()){
-                $bookings[] = $row['Date'];
+                $bookings[] = $row['date'];
             }
             
             $stmt->close();
