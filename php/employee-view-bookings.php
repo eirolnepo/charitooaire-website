@@ -1,14 +1,14 @@
 <?php
 function build_calendar($month, $year) {
     $mysqli = new mysqli('localhost', 'root', '', 'book_db');
-    $stmt = $mysqli->prepare("select * from bookings where MONTH('date') = ? AND YEAR('date') = ?");
+    $stmt = $mysqli->prepare("select * from bookings where MONTH(date) = ? AND YEAR(date) = ?");
     $stmt->bind_param('ss', $month, $year);
     $bookings = array();
     if($stmt->execute()){
         $result = $stmt->get_result();
         if($result->num_rows>0){
             while($row = $result->fetch_assoc()){
-                $bookings[] = $row['date'];
+                $bookings[] = $row['Date'];
             }
             
             $stmt->close();
@@ -75,9 +75,9 @@ function build_calendar($month, $year) {
             }elseif($date<date('Y-m-d')){
                $calendar.="<td><h4>$currentDay</h4> <button class='btn btn-danger btn-xs'>N/A</button>";
             }elseif(in_array($date, $bookings)){
-               $calendar.="<td class='$today'><h4>$currentDay</h4> <button class='btn btn-danger btn-xs'>Already Booked</button>";
+               $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='admin-view-booking-details.php?date=".$date."' class='btn btn-primary btn-xs'>Check Details</a>";
             }else{
-               $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='book-date.php?date=".$date."' class='btn btn-success btn-xs'>Book</a>";
+               $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='#?date=".$date."' class='btn btn-success btn-xs'>Book</a>";
             }  
             
            
