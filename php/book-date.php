@@ -15,7 +15,7 @@ if(isset($_POST["submit"])){
     $servicetype = $_POST["servicetype"];
     $message = $_POST["message"];
     $mysqli = new mysqli('localhost', 'root', '', 'book_db');
-    $stmt = $mysqli->prepare("INSERT INTO bookings (fullName, fullAddress, email, contactNum, airconType, serviceType, message, Date)
+    $stmt = $mysqli->prepare("INSERT INTO bookings (fullName, fullAddress, email, contactNum, airconType, serviceType, message, date)
     VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt->bind_param('sssissss', $name, $address, $email, $number, $aircontype, $servicetype, $message, $date);
     $stmt->execute();
