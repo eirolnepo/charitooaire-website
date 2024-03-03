@@ -18,7 +18,7 @@
             <a href="../admin-homepage.html" class="nav-elements nav-text nav-home text-reset">Home</a>
             <a href="../admin-create-account.html" class="nav-elements nav-text text-reset">Create Account</a>
             <a href="view-books.php" class="nav-elements nav-text text-reset">Database</a>
-            <a href="bookings.php" class="nav-elements nav-text text-reset">Calendar</a>
+            <a href="admin-view-bookings.php" class="nav-elements nav-text text-reset">Calendar</a>
             <a href="../index.php" class="nav-elements nav-text text-reset">Log Out</a>
         </div>
     </nav>

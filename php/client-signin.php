@@ -10,11 +10,11 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
     $result = $mysqli->query($sql);
     $user = $result->fetch_assoc();
 
-    if($user) {
-        if(password_verify($_POST["psw"], $user["password_hash"])) {
-            header("Location: ../signed-in-home.html");
-            exit;
-        }
+    if($user && password_verify($_POST["psw"], $user["password_hash"])) {
+        header("Location: ../signed-in-home.html");
+        exit;
+    } else {
+        echo "document.getElementById('error-message').style.display = 'block';";
     }
 
     $is_invalid = true;

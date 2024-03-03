@@ -1,7 +1,7 @@
 <?php
 function build_calendar($month, $year) {
     $mysqli = new mysqli('localhost', 'root', '', 'book_db');
-    $stmt = $mysqli->prepare("select * from bookings where MONTH('date') = ? AND YEAR('date') = ?");
+    $stmt = $mysqli->prepare("select * from bookings where MONTH(date) = ? AND YEAR(date) = ?");
     $stmt->bind_param('ss', $month, $year);
     $bookings = array();
     if($stmt->execute()){
@@ -192,7 +192,7 @@ function build_calendar($month, $year) {
 </head>
 <body>
     <div class="container">
-        <button id="back-btn"><a href="../signed-in-home.html">&lt&ltBack</a></button>
+        <button id="back-btn"><a href="../signed-in-services.html">&lt&ltBack</a></button>
         <div class="row">
             <div class="col-md-12">
                 <?php

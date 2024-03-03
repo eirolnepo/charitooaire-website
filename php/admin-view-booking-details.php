@@ -28,6 +28,8 @@
                     <th>Contact Number</th>
                     <th>Aircon Type</th>
                     <th>Service Type</th>
+                    <th>Message</th>
+                    <th>Date</th>
                 </tr>
             </thead>
             <tbody>
@@ -58,6 +60,12 @@
                         </td>
                         <td>
                             <?php echo $row["serviceType"]; ?>
+                        </td>
+                        <td>
+                            <?php echo $row["message"]; ?>
+                        </td>
+                        <td>
+                            <?php echo $row["date"]; ?>
                         </td>
                         <td>
                             <a href="admin-edit-bookings.php?id=<?php echo $row["id"]; ?>" class="btn btn-info ">Edit</a>

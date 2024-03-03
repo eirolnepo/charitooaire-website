@@ -45,12 +45,13 @@
         <input type="password" placeholder="Enter Password" name="psw" required>
   
         <button type="submit">Sign In</button>
+        <div id="error-message" style="color: red; display: none;">Wrong Username / Password</div>
 
         <div id="lower-container">
             <label>
                 <input type="checkbox" checked="checked" name="remember"> Remember me
             </label>
-            <p><a href="#" class="text-elements blue-links">Forgot password?</a></p>
+            <!-- <p><a href="#" class="text-elements blue-links">Forgot password?</a></p> -->
             <p><a href="#" class="text-elements blue-links" onclick="openNewModal()">Not a customer?</a></p>
         </div>
       </div>
