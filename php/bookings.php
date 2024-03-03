@@ -1,6 +1,6 @@
 <?php
 function build_calendar($month, $year) {
-    $mysqli = new mysqli('localhost', 'root', '', 'calendar_db');
+    $mysqli = new mysqli('localhost', 'root', '', 'book_db');
     $stmt = $mysqli->prepare("select * from bookings where MONTH(date) = ? AND YEAR(date) = ?");
     $stmt->bind_param('ss', $month, $year);
     $bookings = array();
@@ -8,7 +8,7 @@ function build_calendar($month, $year) {
         $result = $stmt->get_result();
         if($result->num_rows>0){
             while($row = $result->fetch_assoc()){
-                $bookings[] = $row['date'];
+                $bookings[] = $row['Date'];
             }
             
             $stmt->close();
