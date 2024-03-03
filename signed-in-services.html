@@ -6,7 +6,7 @@
     <title>Services</title>
     <link rel="stylesheet" href="css/services.css">
     <link rel="icon" href="imgs/company-logo-circle.png">
-    <script src="js/abt-us-script.js"></script>
+    <script src="js/script.js"></script>
 </head>
 <body>
     <nav id="nav-bar">
@@ -14,11 +14,11 @@
         <a href="index.php" class="nav-elements" id="nav-title">CharitooAire Air Conditioning</a>
 
         <div id="nav-right">
-            <a href="index.php" class="nav-elements nav-text nav-home">Home</a>
-            <a href="services.html" class="nav-elements nav-text">Services</a>
-            <a href="about-us.html" class="nav-elements nav-text">About Us</a>
-            <a href="contact-us.html" class="nav-elements nav-text">Contact Us</a>
-            <a href="#"><button id="sign-in-btn" onclick="document.getElementById('sign-in-modal').style.display='block'">Sign In</button></a>
+            <a href="signed-in-home.html" class="nav-elements nav-text nav-home">Home</a>
+            <a href="signed-in-services.html" class="nav-elements nav-text">Services</a>
+            <a href="signed-in-about-us.html" class="nav-elements nav-text">About Us</a>
+            <a href="signed-in-contact-us.html" class="nav-elements nav-text">Contact Us</a>
+            <a href="#"><button id="sign-in-btn">Sign Out</button></a>
         </div>
     </nav>
 
@@ -28,36 +28,44 @@
             <p class="desc">Charitoo-Aire Airconditioning Corporation is a service company that specializes in providing air conditioning cleaning, repair, installation, and maintenance of air conditioning systems for residential and commercial clients.  We cater to customers anywhere in Laguna and Batangas.</p><br><br>
 
             <div class="services-containers">
-                <div class="services-container" onclick="document.getElementById('sign-in-modal').style.display='block'">
+              <a href="cleaning.html">
+                <div class="services-container">
+                  <div class="service">
+                    <img src="imgs/cleaning-service.svg" alt="">
+                    <h4 class="services-text">Cleaning</h4>
+                    <p class="services-text">Our professional cleaners meticulously clean every inch of your air conditioning system.</p>
+                  </div>
+                </div>
+              </a>
+              <a href="repair.html">
+                <div class="services-container">
+                  <div class="service">
+                    <img src="imgs/repair.svg" alt="">
+                    <h4 class="services-text">Check Up & Repair</h4>
+                    <p class="services-text">We address problems like faulty compressors, refrigerant leaks, malfunctioning thermostats, and electrical issues.</p>
+                  </div>
+                </div>
+              </a>
+                <a href="installation.html">
+                  <div class="services-container">
                     <div class="service">
-                        <a href="cleaning.html"><img src="imgs/cleaning-service.svg" alt=""></a>
-                        <h4 class="services-text">Cleaning</h4>
-                        <p class="services-text">Our professional cleaners meticulously clean every inch of your air conditioning system.</p>
-                    </div>
-                </div>
-                <div class="services-container" onclick="document.getElementById('sign-in-modal').style.display='block'">
-                  <div class="service">
-                        <a href="repair.html"><img src="imgs/repair.svg" alt=""></a>
-                        <h4 class="services-text">Check Up & Repair</h4>
-                        <p class="services-text">We address problems like faulty compressors, refrigerant leaks, malfunctioning thermostats, and electrical issues.</p>
-                    </div>
-                </div>
-                <div class="services-container" onclick="document.getElementById('sign-in-modal').style.display='block'">
-                  <div class="service">
-                        <a href="installation.html"><img src="imgs/install.svg" alt=""></a>
+                        <img src="imgs/install.svg" alt="">
                         <h4 class="services-text">Check Up & Installation</h4>
                         <p class="services-text">We develop a customized installation plan and inform you of the necessary steps.</p>
                     </div>
-                </div>
-                <div class="services-container" onclick="document.getElementById('sign-in-modal').style.display='block'">
-                  <div class="service">
-                        <a href="contact-us.html"><img src="imgs/maintenance.svg" alt=""></a>
+                  </div>
+                </a>
+                <a href="contact-us.html">
+                  <div class="services-container">
+                    <div class="service">
+                        <img src="imgs/maintenance.svg" alt="">
                         <h4 class="services-text">Maintenance</h4>
                         <p class="services-text">Our skilled technicians perform routine checks on your air conditioning system.</p>
                     </div>
-                </div>
-              </div>
+                  </div>
+                </a>
             </div>
+          </div>
     </main>
     
     <!-- all modals -->

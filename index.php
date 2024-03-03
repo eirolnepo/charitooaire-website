@@ -27,7 +27,7 @@
         <h1>Air Conditioning <br>Services</h1>
         <p id="main-quote">"Your breeze of Peace and Comfort"</p><br><br>
         <p id="main-desc">We offer the best assistance <br>for your air conditioning units!</p>
-        <a href="#"><button id="inquire-btn">Inquire Now</button></a>
+        <a href="services.html"><button id="inquire-btn">Inquire Now</button></a>
       </div>
     </main>
 

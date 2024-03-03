@@ -148,6 +148,10 @@ main {
     cursor: pointer;
 }
 
+.services-containers a {
+    text-decoration: none;
+}
+
 /* copyright */
 
 .space {
