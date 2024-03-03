@@ -30,7 +30,8 @@ CREATE TABLE bookings(
     contactNum VARCHAR(11),
     airconType VARCHAR(255),
     serviceType VARCHAR(255),
-    message VARCHAR(255)
+    message VARCHAR(255),
+    Date VARCHAR(255)
 );
 
 DROP TABLE bookings;
