@@ -29,7 +29,7 @@ if(!$stmt->prepare($sql)) {
 $stmt->bind_param("sss", $_POST["uname"], $_POST["email"], $password_hash);
 
 if($stmt->execute()) {
-    exit;
+    header("Location: ../admin-create-account.php");
 } else {
     if($mysqli->errno === 1062) {
         die("Email already taken");
