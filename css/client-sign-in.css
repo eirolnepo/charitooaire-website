@@ -82,6 +82,10 @@ button {
     cursor: pointer;
 }
 
+button:hover {
+    background-color: white;
+}
+
 /* not a customer page specifics */
 #nac-container {
     width: 30rem;

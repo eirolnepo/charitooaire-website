@@ -10,7 +10,6 @@ session_start();
     <title>Services</title>
     <link rel="stylesheet" href="../css/services.css">
     <link rel="icon" href="../imgs/company-logo-circle.png">
-    <script src="js/script.js"></script>
 </head>
 <body>
     <?php if (isset ($_SESSION["user_id"])): ?>

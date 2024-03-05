@@ -10,7 +10,6 @@ session_start();
     <title>Contact Us</title>
     <link rel="stylesheet" href="../css/contact-us.css">
     <link rel="icon" href="../imgs/company-logo-circle.png">
-    <script src="js/abt-us-script.js"></script>
 </head>
 <body>
     <?php if (isset ($_SESSION["user_id"])): ?>
