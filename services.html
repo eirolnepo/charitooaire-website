@@ -28,35 +28,42 @@
             <p class="desc">Charitoo-Aire Airconditioning Corporation is a service company that specializes in providing air conditioning cleaning, repair, installation, and maintenance of air conditioning systems for residential and commercial clients.  We cater to customers anywhere in Laguna and Batangas.</p><br><br>
 
             <div class="services-containers">
-                <div class="services-container" onclick="document.getElementById('sign-in-modal').style.display='block'">
-                    <div class="service">
-                        <a href="cleaning.html"><img src="imgs/cleaning-service.svg" alt=""></a>
-                        <h4 class="services-text">Cleaning</h4>
-                        <p class="services-text">Our professional cleaners meticulously clean every inch of your air conditioning system.</p>
-                    </div>
-                </div>
-                <div class="services-container" onclick="document.getElementById('sign-in-modal').style.display='block'">
+              <a href="cleaning.html">
+                <div class="services-container">
                   <div class="service">
-                        <a href="repair.html"><img src="imgs/repair.svg" alt=""></a>
-                        <h4 class="services-text">Check Up & Repair</h4>
-                        <p class="services-text">We address problems like faulty compressors, refrigerant leaks, malfunctioning thermostats, and electrical issues.</p>
-                    </div>
+                    <img src="imgs/cleaning-service.svg" alt="">
+                    <h4 class="services-text">Cleaning</h4>
+                    <p class="services-text">Our professional cleaners meticulously clean every inch of your air conditioning system.</p>
+                  </div>
                 </div>
-                <div class="services-container" onclick="document.getElementById('sign-in-modal').style.display='block'">
+              </a>
+              <a href="repair.html">
+                <div class="services-container">
                   <div class="service">
-                        <a href="installation.html"><img src="imgs/install.svg" alt=""></a>
-                        <h4 class="services-text">Check Up & Installation</h4>
-                        <p class="services-text">We develop a customized installation plan and inform you of the necessary steps.</p>
-                    </div>
+                      <img src="imgs/repair.svg" alt="">
+                      <h4 class="services-text">Check Up & Repair</h4>
+                      <p class="services-text">We address problems like faulty compressors, refrigerant leaks, malfunctioning thermostats, and electrical issues.</p>
+                  </div>
                 </div>
-                <div class="services-container" onclick="document.getElementById('sign-in-modal').style.display='block'">
+              </a>
+              <a href="installation.html">
+                <div class="services-container">
                   <div class="service">
-                        <a href="contact-us.html"><img src="imgs/maintenance.svg" alt=""></a>
-                        <h4 class="services-text">Maintenance</h4>
-                        <p class="services-text">Our skilled technicians perform routine checks on your air conditioning system.</p>
+                      <img src="imgs/install.svg" alt="">
+                      <h4 class="services-text">Check Up & Installation</h4>
+                      <p class="services-text">We develop a customized installation plan and inform you of the necessary steps.</p>
+                  </div>
+                </div>
+              </a>
+              <a href="contact-us.html">
+                <div class="services-container">
+                  <div class="service">
+                      <img src="imgs/maintenance.svg" alt="">
+                      <h4 class="services-text">Maintenance</h4>
+                      <p class="services-text">Our skilled technicians perform routine checks on your air conditioning system.</p>
                     </div>
                 </div>
-              </div>
+              </a>
             </div>
     </main>
     
@@ -87,7 +94,7 @@
         </div>
     
         <div id="sign-up-modal" class="modal">
-          <form class="modal-content animate" action="php/process-signup.php" method="post">
+          <form class="modal-content animate" action="php/client-signup.php" method="post">
             <div class="container">
               <button id="back-btn" onclick="goBackSignUp()">&lt&ltBack</button>
                 <span class="close" onclick="closeSignUpModal()">&times;</span>

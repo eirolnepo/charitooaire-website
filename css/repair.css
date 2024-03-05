@@ -13,6 +13,10 @@ body {
     background-color: #01395E;
 }
 
+a { 
+    text-decoration: none;
+}
+
 /* navigation bar */
 #nav-bar {
     padding: 3rem;

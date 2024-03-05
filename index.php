@@ -59,7 +59,7 @@
     </div>
 
     <div id="sign-up-modal" class="modal">
-      <form class="modal-content animate" action="php/process-signup.php" method="post">
+      <form class="modal-content animate" action="php/client-signup.php" method="post">
         <div class="container">
           <button id="back-btn" onclick="goBackSignUp()">&lt&ltBack</button>
             <span class="close" onclick="closeSignUpModal()">&times;</span>
