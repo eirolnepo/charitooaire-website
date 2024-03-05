@@ -41,7 +41,8 @@ CREATE TABLE bookings(
     airconType VARCHAR(255),
     serviceType VARCHAR(255),
     message VARCHAR(255),
-    date VARCHAR(255)
+    date VARCHAR(255),
+    timeslot VARCHAR(255)
 );
 
 DROP TABLE bookings;
