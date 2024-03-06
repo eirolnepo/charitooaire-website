@@ -36,6 +36,7 @@
                     <th>Service Type</th>
                     <th>Message</th>
                     <th>Date</th>
+                    <th>Time Slot</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -58,6 +59,7 @@
                             <td><?php echo $row["serviceType"]; ?></td>
                             <td><?php echo $row["message"]; ?></td>
                             <td><?php echo $row["date"]; ?></td>
+                            <td><?php echo $row["timeslot"]; ?></td>
                             <td>
                                 <a href="admin-edit-bookings.php?id=<?php echo $row["id"]; ?>" class="btn btn-info">Edit</a>
                                 
