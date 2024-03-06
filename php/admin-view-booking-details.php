@@ -18,6 +18,13 @@
             </div>
         </header>
 
+        <?php
+        // Check if a date is selected
+        $selectedDate = isset($_GET['date']) ? $_GET['date'] : date('Y-m-d');
+        ?>
+
+        <h2>Bookings for <?php echo $selectedDate; ?></h2>
+
         <table class="table">
             <thead>
                 <tr>
@@ -36,7 +43,8 @@
                 <?php
                 include_once 'book-db.php';
 
-                $result = mysqli_query($mysqli, "SELECT * FROM bookings");
+                // Modify the SQL query to include the selected date
+                $result = mysqli_query($mysqli, "SELECT * FROM bookings WHERE date = '$selectedDate'");
 
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_array($result)) {
@@ -58,8 +66,8 @@
                                 if ($row["status"] != 'Accepted') {
                                     // Render the "Reject" button with a condition to disable it
                                     ?>
-                                        <a href="?action=accept&id=<?php echo $row["id"]; ?>" class="btn btn-success">Accept</a>
-                                        <a href="?action=reject&id=<?php echo $row["id"]; ?>" class="btn btn-danger">Reject</a></td>
+                                    <a href="?action=accept&id=<?php echo $row["id"]; ?>" class="btn btn-success">Accept</a>
+                                    <a href="?action=reject&id=<?php echo $row["id"]; ?>" class="btn btn-danger">Reject</a>
                                 <?php
                                 } else {
                                     // Render a disabled "Reject" button
@@ -91,7 +99,7 @@
                     }
 
                     // Redirect back to the same page after the status update
-                    header("Location: admin-view-bookings.php");
+                    header("Location: admin-view-bookings.php?date=$selectedDate");
                     exit();
                 }
                 ?>
