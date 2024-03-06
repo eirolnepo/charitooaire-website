@@ -42,7 +42,8 @@ CREATE TABLE bookings(
     serviceType VARCHAR(255),
     message VARCHAR(255),
     date VARCHAR(255),
-    timeslot VARCHAR(255)
+    timeslot VARCHAR(255),
+    status VARCHAR(255)
 );
 
 DROP TABLE bookings;
