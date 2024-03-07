@@ -7,12 +7,12 @@
     integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/script.js"></script>
-    <title>Edit Bookings</title>
+    <title>Details</title>
 </head>
 <body>
     <div class="container">
         <header class="d-flex justify-content-between my-4">
-            <h1>Edit Member</h1>
+            <h1>Details</h1>
             <div>
                 <a href="admin-view-bookings.php" class="btn btn-primary">Back</a>
             </div>
@@ -25,7 +25,7 @@
 
         <h2>Bookings for <?php echo $selectedDate; ?></h2>
 
-        <table class="table">
+        <table class="table" style="width:110%">
             <thead>
                 <tr>
                     <th>Full Name</th>
