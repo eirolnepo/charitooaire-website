@@ -2,9 +2,22 @@
 
 $service = $_REQUEST['service'];
 $aircon = $_REQUEST['aircon'];
-
+$mysqli = new mysqli('localhost', 'root', '', 'book_db');
 if (isset($_GET['date'])) {
   $date = $_GET['date'];
+  $stmt = $mysqli->prepare("select * from bookings where date = ?");
+    $stmt->bind_param('s', $date);
+    $bookings = array();
+    if($stmt->execute()){
+        $result = $stmt->get_result();
+        if($result->num_rows>0){
+            while($row = $result->fetch_assoc()){
+                $bookings[] = $row['timeslot'];
+            }
+            
+            $stmt->close();
+         }
+        }
 }
 
 
@@ -18,20 +31,45 @@ if(isset($_POST["submit"])){
     $servicetype = $_REQUEST["service"];
     $message = $_POST["message"];
     $timeslot = $_POST["timeslot"];
-    $mysqli = new mysqli('localhost', 'root', '', 'book_db');
-    $stmt = $mysqli->prepare("INSERT INTO bookings (fullName, fullAddress, email, contactNum, airconType, serviceType, message, date, timeslot)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param('sssisssss', $name, $address, $email, $number, $aircontype, $servicetype, $message, $date, $timeslot);
-    $stmt->execute();
-    $msg = "<div class='alert alert-success role='alert'>Booking Successful!</div>";
-    $stmt->close();
-    $mysqli->close();
+    $stmt = $mysqli->prepare("select * from bookings where date = ? AND timeslot = ?");
+    $stmt->bind_param('ss', $date, $timeslot);
+    $bookings = array();
+    if($stmt->execute()){
+        $result = $stmt->get_result();
+        if($result->num_rows>0){
+           
+          $msg = "<div class='alert alert-danger role='alert' style='width:47%;text-align:left;margin-left:0'>Already Booked</div>";
+           
+        } else {
+          $stmt = $mysqli->prepare("INSERT INTO bookings (fullName, fullAddress, email, contactNum, airconType, serviceType, message, date, timeslot)
+          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+          $stmt->bind_param('sssisssss', $name, $address, $email, $number, $aircontype, $servicetype, $message, $date, $timeslot);
+          $stmt->execute();
+          $msg = "<div class='alert alert-success role='alert' style='width:48%;text-align:left;margin-left:0'>Booking Successful!</div>";
+          $bookings[]= $timeslot;
+          $stmt->close();
+          $mysqli->close();
+        }
+}
 }
 
-$duration = 120;
-$cleanup = 0;
+$duration = "";
+$cleanup = "";
 $start = "07:00";
 $end = "16:00";
+$req_service1 = "cleaning";
+$req_service2 = "repair";
+$req_service3 = "installation";
+if ($service == $req_service1) {
+  $duration = 120;
+  $cleanup = 0;
+} elseif ($service == $req_service2) {
+  $duration = 150;
+  $cleanup = 0;
+} elseif ($service == $req_service3) {
+  $duration = 240;
+  $cleanup = 0;
+}
 
 function timeslot($duration, $cleanup, $start, $end){
   $start = new DateTime($start);
@@ -66,15 +104,21 @@ function timeslot($duration, $cleanup, $start, $end){
   <body>
     <button id="back-btn"><a href="bookings.php">&lt&ltBack</a></button>
     <div class="container">
-        <h1>Book a Service for <?php echo date('F j, Y', strtotime($date)); ?></h1><hr><br>
-        
+        <h1>Book a Service for <?php echo date('F j, Y', strtotime($date)); ?></h1><hr style="width:47%;text-align:left;margin-left:0"><br>
+        <?php echo isset($msg)?$msg:''; ?>
         <div class="row">
+        
             <?php $timeslots = timeslot($duration, $cleanup, $start, $end);
             foreach ($timeslots as $ts ) {
             ?>
             <div class= "col-md-2">
               <div class="form-group">
-              <button class= "btn btn-success book" data-timeslot="<?php echo $ts; ?>"><?php echo $ts; ?></button>
+                <?php 
+                if (in_array($ts, $bookings)) { ?>
+                 <button class= "btn btn-danger" ><?php echo $ts; ?></button>
+                <?php } else{?>
+                  <button class= "btn btn-success book" data-timeslot="<?php echo $ts; ?>"><?php echo $ts; ?></button>  
+              <?php } ?>
               </div>
               
         </div>
