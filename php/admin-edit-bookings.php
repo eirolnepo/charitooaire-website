@@ -27,16 +27,16 @@
     ?>
         <form action="#" method="post">
             <div class="form-element my-4">
-                <input type="text" class="form-control" name="fname" value="<?php echo $row["fullName"]?>" placeholder="Full Name:">
+                <input type="text" class="form-control" name="fname" value="<?php echo $row["fullName"]?>" placeholder="Full Name">
             </div>
             <div class="form-element my-4">
-                <input type="text" class="form-control" name="faddress" value="<?php echo $row["fullAddress"]?>" placeholder="Full Address:">
+                <input type="text" class="form-control" name="faddress" value="<?php echo $row["fullAddress"]?>" placeholder="Full Address">
             </div>
             <div class="form-element my-4">
-                <input type="text" class="form-control" name="email" value="<?php echo $row["email"]?>" placeholder="Birth Date:">
+                <input type="text" class="form-control" name="email" value="<?php echo $row["email"]?>" placeholder="Birth Date">
             </div>
             <div class="form-element my-4">
-                <input type="text" class="form-control" name="connnumber" value="<?php echo $row["contactNum"]?>" placeholder="Contact Number:">
+                <input type="text" class="form-control" name="connnumber" value="<?php echo $row["contactNum"]?>" placeholder="Contact Number">
             </div>
             <div class="form-element my-4">
                 <label for="aircontype">Aircon Type</label>
