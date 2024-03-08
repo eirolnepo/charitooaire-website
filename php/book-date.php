@@ -45,7 +45,7 @@ if(isset($_POST["submit"])){
           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
           $stmt->bind_param('sssisssss', $name, $address, $email, $number, $aircontype, $servicetype, $message, $date, $timeslot);
           $stmt->execute();
-          $msg = "<div class='alert alert-success role='alert' style='width:48%;text-align:left;margin-left:0'>Booking Successful!</div>";
+          $msg = "<div class='alert alert-success role='alert' style='width:48%;text-align:left;margin-left:0'>Booking subject for approval!</div>";
           $bookings[]= $timeslot;
           $stmt->close();
           $mysqli->close();
