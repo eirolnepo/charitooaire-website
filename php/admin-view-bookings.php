@@ -37,7 +37,7 @@ function build_calendar($month, $year) {
     $calendar.= " <a class='btn btn-xs btn-primary' href='?month=".date('m')."&year=".date('Y')."'>Current Month</a> ";
     
     $calendar.= "<a class='btn btn-xs btn-primary' href='?month=".date('m', mktime(0, 0, 0, $month+1, 1, $year))."&year=".date('Y', mktime(0, 0, 0, $month+1, 1, $year))."'>Next Month</a> ";
-    $calendar.= "<a class='btn btn-xs btn-primary' href='approval-page.php'>All Bookings</a><br></center>";
+    $calendar.= "<a class='btn btn-xs btn-primary' href='admin-approval-page.php'>All Bookings</a><br></center>";
       $calendar .= "<tr>";
 
      foreach($daysOfWeek as $day) {
