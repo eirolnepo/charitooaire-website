@@ -253,7 +253,7 @@ function checkslot($mysqli,$date,$service){
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <button class="back-btn-border"><a href="si-services.html" id="back-btn">&lt&ltBack</a></button>
+                <button class="back-btn-border"><a href="services.php" id="back-btn">&lt&ltBack</a></button>
                 <?php
                      $dateComponents = getdate();
                      if(isset($_GET['month']) && isset($_GET['year'])){
