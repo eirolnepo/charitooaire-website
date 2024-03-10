@@ -32,7 +32,7 @@ session_start();
               <p class="desc">Charitoo-Aire Airconditioning Corporation is a service company that specializes in providing air conditioning cleaning, repair, installation, and maintenance of air conditioning systems for residential and commercial clients.  We cater to customers anywhere in Laguna and Batangas.</p><br><br>
 
               <div class="services-containers">
-                <a href="cleaning.html">
+                <a href="cleaning.php">
                   <div class="services-container">
                     <div class="service">
                       <img src="../imgs/cleaning-service.svg" alt="">
@@ -41,7 +41,7 @@ session_start();
                     </div>
                   </div>
                 </a>
-                <a href="repair.html">
+                <a href="repair.php">
                   <div class="services-container">
                     <div class="service">
                         <img src="../imgs/repair.svg" alt="">
@@ -50,7 +50,7 @@ session_start();
                     </div>
                   </div>
                 </a>
-                <a href="installation.html">
+                <a href="installation.php">
                   <div class="services-container">
                     <div class="service">
                         <img src="../imgs/install.svg" alt="">
@@ -59,7 +59,7 @@ session_start();
                     </div>
                   </div>
                 </a>
-                <a href="contact-us.html">
+                <a href="contact-us.php">
                   <div class="services-container">
                     <div class="service">
                         <img src="../imgs/maintenance.svg" alt="">
@@ -90,7 +90,7 @@ session_start();
               <p class="desc">Charitoo-Aire Airconditioning Corporation is a service company that specializes in providing air conditioning cleaning, repair, installation, and maintenance of air conditioning systems for residential and commercial clients.  We cater to customers anywhere in Laguna and Batangas.</p><br><br>
 
               <div class="services-containers">
-                <a href="cleaning.html">
+                <a href="cleaning.php">
                   <div class="services-container">
                     <div class="service">
                       <img src="../imgs/cleaning-service.svg" alt="">
@@ -99,7 +99,7 @@ session_start();
                     </div>
                   </div>
                 </a>
-                <a href="repair.html">
+                <a href="repair.php">
                   <div class="services-container">
                     <div class="service">
                         <img src="../imgs/repair.svg" alt="">
@@ -108,7 +108,7 @@ session_start();
                     </div>
                   </div>
                 </a>
-                <a href="installation.html">
+                <a href="installation.php">
                   <div class="services-container">
                     <div class="service">
                         <img src="../imgs/install.svg" alt="">
@@ -117,7 +117,7 @@ session_start();
                     </div>
                   </div>
                 </a>
-                <a href="contact-us.html">
+                <a href="contact-us.php">
                   <div class="services-container">
                     <div class="service">
                         <img src="../imgs/maintenance.svg" alt="">
