@@ -14,7 +14,7 @@
         <header class="d-flex justify-content-between my-4">
             <h1>All Bookings</h1>
             <div>
-                <a href="admin-view-bookings.php" class="btn btn-primary">Back</a>
+                <a href="employee-homepage.php" class="btn btn-primary">Back</a>
             </div>
         </header>
 
