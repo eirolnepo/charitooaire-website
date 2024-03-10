@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,22 +9,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Account</title>
-    <link rel="stylesheet" href="css/admin-create-account.css">
-    <link rel="icon" href="imgs/company-logo-circle.png">
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="../css/admin-create-account.css">
+    <link rel="icon" href="../imgs/company-logo-circle.png">
 </head>
 
 <body>
     <nav id="nav-bar">
-        <a href="index.php"><img src="imgs/company-logo-circle.png" alt="logo of charitooaire" id="nav-logo"></a>
-        <a href="index.php" class="nav-elements" id="nav-title">CharitooAire Air Conditioning</a>
+        <a href="admin-create-account.php"><img src="../imgs/company-logo-circle.png" alt="logo of charitooaire" id="nav-logo"></a>
+        <a href="admin-create-account.php" class="nav-elements" id="nav-title">CharitooAire Air Conditioning</a>
 
         <div id="nav-right">
-            <a href="admin-homepage.html" class="nav-elements nav-text nav-home">Home</a>
-            <a href="#" class="nav-elements nav-text">Create Account</a>
-            <a href="php/view-books.php" class="nav-elements nav-text">Database</a>
-            <a href="php/admin-view-bookings.php" class="nav-elements nav-text">Calendar</a>
-            <a href="index.php" class="nav-elements nav-text">Log Out</a>
+            <a href="admin-homepage.php" class="nav-elements nav-text nav-home">Home</a>
+            <a href="admin-create-account.php" class="nav-elements nav-text">Create Account</a>
+            <a href="view-books.php" class="nav-elements nav-text">Database</a>
+            <a href="admin-view-bookings.php" class="nav-elements nav-text">Calendar</a>
+            <a href="../index.php" class="nav-elements nav-text">Log Out</a>
         </div>
     </nav>
     

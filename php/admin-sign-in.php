@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if($user && password_verify($_POST["psw"], $user["password_hash"])) {
         session_start();
         $_SESSION["user_id"] = $user["id"];
-        header("Location: ../admin-homepage.html");
+        header("Location: admin-homepage.php");
         exit;
     }
     
@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             </div>
             <div id="inputs">
                 <?php if ($is_invalid): ?>
-                    <p>Invalid login</p>
+                    <p id="invalid-login">Invalid login</p>
                 <?php endif; ?>
                 <label for="email"><b>Email</b></label>
                 <input type="text" placeholder="Enter Email" name="email" required><br>
