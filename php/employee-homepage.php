@@ -36,6 +36,7 @@ session_start();
             </a>
             
             <div class="services-container">
+            <a href="approval-page.php">
                 <div class="service">
                     <img src="../imgs/work.svg" alt="">
                     <p class="services-text">Work Details</p>
