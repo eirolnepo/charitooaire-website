@@ -60,8 +60,12 @@
                             <td><?php echo $row["timeslot"]; ?></td>
                             <td>
 
-                                
+                                                            
                                 <?php
+                                //checks status if done
+                                if ($row["status"] != 'Done') {
+                                //if not proceeds to verification below
+
                                 // Check if the booking is accepted
                                 if ($row["status"] != 'Accepted') {
                                     // Render the "Reject" button with a condition to disable it
@@ -70,9 +74,9 @@
                                     
                                 <?php
                                 } else {
-                                    // Render a disabled "Reject" button
+                                    // Render a "Done" button
                                     ?>
-                                    <button class="btn btn-danger" disabled>Reject</button>
+                                    <a href="?action=done&id=<?php echo $row["id"]; ?>" class="btn btn-success">Done</a>
                                 <?php
                                 }
                                 ?>
@@ -90,7 +94,14 @@
                                     <a href="?action=reject&id=<?php echo $row["id"]; ?>" class="btn btn-danger">Reject</a>
                                 <?php
                                 }
-                                ?>
+                                ?> 
+                            <?php
+                        } else {?>
+                                <?php 
+                                //if the status is 'done', display its status
+                                echo $row["status"];?> 
+                                <?php } ?>
+    
                             </td>
                         </tr>
                         <?php
@@ -100,7 +111,7 @@
                 }
 
                 // Handle booking status changes
-                if (isset($_GET['action']) && in_array($_GET['action'], ['accept', 'reject', 'cancel'])) {
+                if (isset($_GET['action']) && in_array($_GET['action'], ['accept', 'reject', 'cancel', 'done'])) {
                     $action = $_GET['action'];
                     $bookingId = $_GET['id'];
 
@@ -113,10 +124,13 @@
                         mysqli_query($mysqli, "DELETE FROM bookings WHERE id = $bookingId");
                     }elseif ($action == 'cancel') {
                         mysqli_query($mysqli, "DELETE FROM bookings WHERE id = $bookingId");
+                    }elseif ($action == 'done') {
+                        $status = 'Done';
+                        mysqli_query($mysqli, "UPDATE bookings SET status = '$status' WHERE id = $bookingId");
                     }
 
                     // Redirect back to the same page after the status update
-                    header("Location: employee-approval-page.php?date=$selectedDate");
+                    header("Location:approval-page.php?date=$selectedDate");
                     exit();
                 }
                 ?>

@@ -62,6 +62,10 @@
 
                                 
                                 <?php
+                                //checks status if done
+                                if ($row["status"] != 'Done') {
+                                //if not proceeds to verification below
+
                                 // Check if the booking is accepted
                                 if ($row["status"] != 'Accepted') {
                                     // Render the "Reject" button with a condition to disable it
@@ -70,9 +74,9 @@
                                     
                                 <?php
                                 } else {
-                                    // Render a disabled "Reject" button
+                                    // Render a "Done" button
                                     ?>
-                                    <button class="btn btn-danger" disabled>Reject</button>
+                                    <a href="?action=done&id=<?php echo $row["id"]; ?>" class="btn btn-success">Done</a>
                                 <?php
                                 }
                                 ?>
@@ -91,6 +95,12 @@
                                 <?php
                                 }
                                 ?>
+                                <?php
+                        } else {?>
+                                <?php 
+                                //if the status is 'done', display its status
+                                echo $row["status"];?> 
+                                <?php } ?>
                             </td>
                         </tr>
                         <?php
