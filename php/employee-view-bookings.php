@@ -219,7 +219,7 @@ function build_calendar($month, $year) {
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-        <button class="back-btn-border"><a href="../employee-homepage.html" id="back-btn">Back</a></button>
+        <button class="back-btn-border"><a href="employee-homepage.php" id="back-btn">Back</a></button>
                 <?php
                      $dateComponents = getdate();
                      if(isset($_GET['month']) && isset($_GET['year'])){
