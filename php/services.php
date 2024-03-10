@@ -22,6 +22,7 @@ session_start();
             <a href="services.php" class="nav-elements nav-text">Services</a>
             <a href="about-us.php" class="nav-elements nav-text">About Us</a>
             <a href="contact-us.php" class="nav-elements nav-text">Contact Us</a>
+            <a href="client-profile.php" class="nav-elements nav-text">Profile</a>
             <a href="logout.php"><button id="sign-in-btn">Sign Out</button></a>
         </div>
       </nav>

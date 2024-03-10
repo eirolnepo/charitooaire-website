@@ -25,7 +25,10 @@ CREATE TABLE user(
 	id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(255),
     email VARCHAR(255) UNIQUE,
-    password_hash VARCHAR(255)
+    address VARCHAR(255),
+    contnum VARCHAR(11),
+    password_hash VARCHAR(255),
+    profile_img VARCHAR(255)
 );
 
 DROP TABLE user;

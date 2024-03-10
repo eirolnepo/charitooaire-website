@@ -32,6 +32,17 @@ main {
     justify-content: center;
 }
 
+#sign-up-form {
+    width: 50rem;
+    padding: 3rem;
+    border: 2px solid white;
+    border-radius: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 #upper-container {
     margin-bottom: 1.5rem;
 }

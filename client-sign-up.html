@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="css/client-sign-in.css">
+    <link rel="icon" href="imgs/company-logo-circle.png">
+</head>
+<body>
+    <main>
+        <form id="sign-up-form" action="php/client-create-acc.php" method="POST">
+            <div id="upper-container">
+                <a href="php/client-sign-in.php"><img src="imgs/back-btn.svg" id="filter-white"></a>
+                <h1>Sign Up</h1>
+            </div>
+            <div id="inputs">
+                <label for="name"><b>Full Name</b></label>
+                <input type="text" placeholder="Enter Full Name" name="name" required><br>
+                <label for="email"><b>Email</b></label>
+                <input type="text" placeholder="Enter Email" name="email" required><br>
+                <label for="address"><b>Full Address</b></label>
+                <input type="text" placeholder="Enter Full Address" name="address" required><br>
+                <label for="contnum"><b>Contact Number</b></label>
+                <input type="number" placeholder="Enter Contact Number" name="contnum" required><br>
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required><br>
+                <label for="rppsw"><b>Repeat Password</b></label>
+                <input type="password" placeholder="Repeat Password" name="rppsw" required>
+            </div>
+            <button type="submit">Sign Up</button><br>
+        </form>
+    </main>
+</body>
+</html>

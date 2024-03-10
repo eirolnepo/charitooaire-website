@@ -37,7 +37,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
             <div id="upper-container">
                 <a href="../index.php"><img src="../imgs/back-btn.svg" id="filter-white"></a>
                 <h1>Sign In</h1>
-                <p class="new-user-txt">New user?<span> </span><a href="client-create-acc.php" class="new-user-txt">Create an account</a></p>
+                <p class="new-user-txt">New user?<span> </span><a href="../client-sign-up.html" class="new-user-txt">Create an account</a></p>
             </div>
             <div id="inputs">
                 <?php if ($is_invalid): ?>
