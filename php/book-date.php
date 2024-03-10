@@ -102,7 +102,7 @@ function timeslot($duration, $cleanup, $start, $end){
   </head>
 
   <body>
-    <button id="back-btn"><a href="bookings.php">&lt&ltBack</a></button>
+    <button id="back-btn"><a href="bookings.php?date='<?php $date ?>'&service='<?php $service ?>'&aircon='<?php $_GET['aircon']?>'">&lt&ltBack</a></button>
     <div class="container">
         <h1>Book a Service for <?php echo date('F j, Y', strtotime($date)); ?></h1><hr style="width:47%;text-align:left;margin-left:0"><br>
         <?php echo isset($msg)?$msg:''; ?>

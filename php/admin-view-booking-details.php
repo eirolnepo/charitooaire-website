@@ -61,10 +61,14 @@
                             <td><?php echo $row["date"]; ?></td>
                             <td><?php echo $row["timeslot"]; ?></td>
                             <td>
-                                <a href="admin-edit-bookings.php?id=<?php echo $row["id"]; ?>" class="btn btn-info">Edit</a>
+                                
                                 
                                 <?php
-                                // Check if the booking is accepted
+                                //checks status if done
+                                if ($row["status"] != 'Done') {
+                                //if not proceeds to verification below ?>
+                                <a href="admin-edit-bookings.php?id=<?php echo $row["id"]; ?>" class="btn btn-info">Edit</a>
+                               <?php // Check if the booking is accepted
                                 if ($row["status"] != 'Accepted') {
                                     // Render the "Reject" button with a condition to disable it
                                     ?>
@@ -72,9 +76,9 @@
                                     
                                 <?php
                                 } else {
-                                    // Render a disabled "Reject" button
+                                    // Render a "Done" button
                                     ?>
-                                    <button class="btn btn-danger" disabled>Reject</button>
+                                    <a href="?action=done&id=<?php echo $row["id"]; ?>" class="btn btn-success">Done</a>
                                 <?php
                                 }
                                 ?>
@@ -93,6 +97,12 @@
                                 <?php
                                 }
                                 ?>
+                                <?php
+                        } else {?>
+                                <?php 
+                                //if the status is 'done', display its status
+                                echo $row["status"];?> 
+                                <?php } ?>
                             </td>
                         </tr>
                         <?php
@@ -102,7 +112,7 @@
                 }
 
                 // Handle booking status changes
-                if (isset($_GET['action']) && in_array($_GET['action'], ['accept', 'reject', 'cancel'])) {
+                if (isset($_GET['action']) && in_array($_GET['action'], ['accept', 'reject', 'cancel', 'done'])) {
                     $action = $_GET['action'];
                     $bookingId = $_GET['id'];
 
@@ -115,6 +125,9 @@
                         mysqli_query($mysqli, "DELETE FROM bookings WHERE id = $bookingId");
                     }elseif ($action == 'cancel') {
                         mysqli_query($mysqli, "DELETE FROM bookings WHERE id = $bookingId");
+                    }elseif ($action == 'done') {
+                        $status = 'Done';
+                        mysqli_query($mysqli, "UPDATE bookings SET status = '$status' WHERE id = $bookingId");
                     }
 
                     // Redirect back to the same page after the status update
