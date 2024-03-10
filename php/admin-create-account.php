@@ -32,8 +32,8 @@ session_start();
             <div class="containerAdmin">
                 <h2>Employee Account</h2>
                 <form class="form-login" action="php/employee-create-acc.php" method="post">
-                    <input placeholder="Email" type="email" name="email" id="email" class="input" required>
                     <input placeholder="Username" type="text" name="uname" id="username" class="input" required>
+                    <input placeholder="Email" type="email" name="email" id="email" class="input" required>
                     <input placeholder="Password" type="password" name="psw" id="password" class="input" required>
                     <input placeholder="Confirm Password" type="password" name="rppsw" id="confirm-password" class="input" required>
                     <input value="Create Account" type="submit" class="form-login login-button">
