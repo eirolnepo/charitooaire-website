@@ -112,10 +112,3 @@ button:hover {
 .nac-text {
     font-size: 2rem;
 }
-
-#invalid-login {
-    background-color: #ed8a8a;
-    padding: 1rem;
-    border: red 1px solid;
-    border-radius: 1rem;
-}

@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,12 +11,12 @@ session_start();
 </head>
 <body>
 <nav id="nav-bar">
-        <a href="view-books.php"><img src="../imgs/company-logo-circle.png" alt="logo of charitooaire" id="nav-logo"></a>
-        <a href="view-books.php" class="nav-elements text-reset" id="nav-title">CharitooAire Air Conditioning</a>
+        <a href="index.php"><img src="../imgs/company-logo-circle.png" alt="logo of charitooaire" id="nav-logo"></a>
+        <a href="index.php" class="nav-elements text-reset" id="nav-title">CharitooAire Air Conditioning</a>
 
         <div id="nav-right">
-            <a href="admin-homepage.php" class="nav-elements nav-text nav-home text-reset">Home</a>
-            <a href="admin-create-account.php" class="nav-elements nav-text text-reset">Create Account</a>
+            <a href="../admin-homepage.html" class="nav-elements nav-text nav-home text-reset">Home</a>
+            <a href="../admin-create-account.html" class="nav-elements nav-text text-reset">Create Account</a>
             <a href="view-books.php" class="nav-elements nav-text text-reset">Database</a>
             <a href="admin-view-bookings.php" class="nav-elements nav-text text-reset">Calendar</a>
             <a href="../index.php" class="nav-elements nav-text text-reset">Log Out</a>

@@ -7,12 +7,12 @@
     integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/script.js"></script>
-    <title>Edit Bookings</title>
+    <title>Details</title>
 </head>
 <body>
     <div class="container">
         <header class="d-flex justify-content-between my-4">
-            <h1>Edit Member</h1>
+            <h1>Details</h1>
             <div>
                 <a href="admin-view-bookings.php" class="btn btn-primary">Back</a>
             </div>
@@ -25,7 +25,7 @@
 
         <h2>Bookings for <?php echo $selectedDate; ?></h2>
 
-        <table class="table">
+        <table class="table" style="width:110%">
             <thead>
                 <tr>
                     <th>Full Name</th>
@@ -69,27 +69,12 @@
                                     // Render the "Reject" button with a condition to disable it
                                     ?>
                                     <a href="?action=accept&id=<?php echo $row["id"]; ?>" class="btn btn-success">Accept</a>
-                                    
+                                    <a href="?action=reject&id=<?php echo $row["id"]; ?>" class="btn btn-danger">Reject</a>
                                 <?php
                                 } else {
                                     // Render a disabled "Reject" button
                                     ?>
                                     <button class="btn btn-danger" disabled>Reject</button>
-                                <?php
-                                }
-                                ?>
-
-                                <?php
-                                // Check if the booking is accepted
-                                if ($row["status"] == 'Accepted') {
-                                    // Render the "Cancel" button for accepted bookings
-                                    ?>
-                                    <a href="?action=cancel&id=<?php echo $row["id"]; ?>" class="btn btn-warning">Cancel</a>
-                                <?php
-                                } else {
-                                    // Render the "Reject" button with a condition to disable it
-                                    ?>
-                                    <a href="?action=reject&id=<?php echo $row["id"]; ?>" class="btn btn-danger">Reject</a>
                                 <?php
                                 }
                                 ?>
@@ -102,7 +87,7 @@
                 }
 
                 // Handle booking status changes
-                if (isset($_GET['action']) && in_array($_GET['action'], ['accept', 'reject', 'cancel'])) {
+                if (isset($_GET['action']) && in_array($_GET['action'], ['accept', 'reject'])) {
                     $action = $_GET['action'];
                     $bookingId = $_GET['id'];
 
@@ -112,8 +97,6 @@
                         mysqli_query($mysqli, "UPDATE bookings SET status = '$status' WHERE id = $bookingId");
                     } elseif ($action == 'reject') {
                         // Remove the booking if rejected
-                        mysqli_query($mysqli, "DELETE FROM bookings WHERE id = $bookingId");
-                    }elseif ($action == 'cancel') {
                         mysqli_query($mysqli, "DELETE FROM bookings WHERE id = $bookingId");
                     }
 

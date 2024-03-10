@@ -39,9 +39,6 @@
                 <input type="text" class="form-control" name="connnumber" value="<?php echo $row["contactNum"]?>" placeholder="Contact Number">
             </div>
             <div class="form-element my-4">
-                <input type="text" class="form-control" name="timeslot" value="<?php echo $row["timeslot"]?>" placeholder="Time Slot">
-            </div>
-            <div class="form-element my-4">
                 <label for="aircontype">Aircon Type</label>
                 <select name="aircontype" class="form-control">
                         <option value="Window Aircon"  <?php if($row['airconType']=="Window Aircon"){echo "selected";} ?>>Window Air Conditioners</option>

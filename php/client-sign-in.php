@@ -41,7 +41,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
             </div>
             <div id="inputs">
                 <?php if ($is_invalid): ?>
-                    <p id="invalid-login">Wrong email or password</p>
+                    <p>Invalid login</p>
                 <?php endif; ?>
                 <label for="email"><b>Email</b></label>
                 <input type="text" placeholder="Enter Email" name="email" required><br>
