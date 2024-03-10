@@ -22,7 +22,12 @@
         // Check if a date is selected
         $selectedDate = isset($_GET['date']) ? $_GET['date'] : date('Y-m-d');
         ?>
-
+        <form method="GET" action="">
+            <label for="search">Search:</label>
+            <input type="text" name="search" id="search" placeholder="Enter search term">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+        
         <table class="table">
             <thead>
                 <tr>
@@ -41,9 +46,21 @@
             <tbody>
                 <?php
                 include_once 'book-db.php';
+                // Check if search parameter is present
+                if (isset($_GET['search'])) {
+                    $search = $_GET['search'];
+                    $result = mysqli_query($mysqli, "SELECT * FROM bookings WHERE 
+                        fullName LIKE '%$search%' OR
+                        fullAddress LIKE '%$search%' OR
+                        email LIKE '%$search%' OR
+                        contactNum LIKE '%$search%' OR
+                        airconType LIKE '%$search%' OR
+                        serviceType LIKE '%$search%'");
+                } else {
+                    // Default query without search
+                    $result = mysqli_query($mysqli, "SELECT * FROM bookings ORDER BY Date ASC");
+                }
 
-                // Modify the SQL query to include the selected date
-                $result = mysqli_query($mysqli, "SELECT * FROM bookings ORDER BY Date ASC");
 
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_array($result)) {
