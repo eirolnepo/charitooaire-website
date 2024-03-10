@@ -1,26 +1,13 @@
 <?php
 function build_calendar($month, $year) {
     $mysqli = new mysqli('localhost', 'root', '', 'book_db');
-    /*$stmt = $mysqli->prepare("select * from bookings where MONTH(date) = ? AND YEAR(date) = ?");
-    $stmt->bind_param('ss', $month, $year);
-    $bookings = array();
-    if($stmt->execute()){
-        $result = $stmt->get_result();
-        if($result->num_rows>0){
-            while($row = $result->fetch_assoc()){
-                $bookings[] = $row['Date'];
-            }
-            
-            $stmt->close();
-         }
-    }*/
-    
+    //create an array containing days of the week
      $daysOfWeek = array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
-
+    //first day of the month
      $firstDayOfMonth = mktime(0,0,0,$month,1,$year);
-
+    //total days of the month
      $numberDays = date('t',$firstDayOfMonth);
-
+    //get the first date of the month
      $dateComponents = getdate($firstDayOfMonth);
 
      $monthName = $dateComponents['month'];
@@ -32,14 +19,14 @@ function build_calendar($month, $year) {
      
     $calendar = "<table class='table table-bordered'>";
     $calendar .= "<center><h2>$monthName $year</h2>";
-    $calendar.= "<a class='btn btn-xs btn-primary' href='?month=".date('m', mktime(0, 0, 0, $month-1, 1, $year))."&year=".date('Y', mktime(0, 0, 0, $month-1, 1, $year))."'>Previous Month</a> ";
+    $calendar.= "<a class='btn btn-xs btn-primary' href='?month=".date('m', mktime(0, 0, 0, $month-1, 1, $year))."&year=".date('Y', mktime(0, 0, 0, $month-1, 1, $year))."&service=".$_GET['service']."&aircon=".$_GET['aircon']."'>Previous Month</a> ";
     
-    $calendar.= " <a class='btn btn-xs btn-primary' href='?month=".date('m')."&year=".date('Y')."'>Current Month</a> ";
+    $calendar.= " <a class='btn btn-xs btn-primary' href='?month=".date('m')."&year=".date('Y')."&service=".$_GET['service']."&aircon=".$_GET['aircon']."'>Current Month</a> ";
     
-    $calendar.= "<a class='btn btn-xs btn-primary' href='?month=".date('m', mktime(0, 0, 0, $month+1, 1, $year))."&year=".date('Y', mktime(0, 0, 0, $month+1, 1, $year))."'>Next Month</a></center><br>";
+    $calendar.= "<a class='btn btn-xs btn-primary' href='?month=".date('m', mktime(0, 0, 0, $month+1, 1, $year))."&year=".date('Y', mktime(0, 0, 0, $month+1, 1, $year))."&service=".$_GET['service']."&aircon=".$_GET['aircon']."'>Next Month</a></center><br>";
     
       $calendar .= "<tr>";
-
+    //create the calendar headers
      foreach($daysOfWeek as $day) {
           $calendar .= "<th  class='header'>$day</th>";
      } 
@@ -66,19 +53,7 @@ function build_calendar($month, $year) {
           
           $currentDayRel = str_pad($currentDay, 2, "0", STR_PAD_LEFT);
           $date = "$year-$month-$currentDayRel";
-          $req_service = $_REQUEST['service'];
-          $req_aircon = $_REQUEST['aircon'];
-          $service1 = 'cleaning';
-          $service2 = 'repair';
-          $service3 = 'installation';
-
-          $aircon1 = 'wallmounted';
-          $aircon2 = 'windowtype';
-          $aircon3 = 'floormounted';
-          $aircon4 = 'ceillingcassette';
-          $aircon5 = 'ceillingsuspended';
-
-          
+      
             $dayname = strtolower(date('l', strtotime($date)));
             $eventNum = 0;
             $today = $date==date('Y-m-d')? "today" : "";
@@ -87,51 +62,36 @@ function build_calendar($month, $year) {
             }elseif($date<date('Y-m-d')){
                $calendar.="<td><h4>$currentDay</h4> <button class='btn btn-danger btn-xs'>N/A</button>";
             }else{
-                if ($req_service == $service1 && $req_aircon == $aircon1) {
-                    $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='book-date.php?date=".$date."&service=Cleaning&aircon=Wall Mounted' class='btn btn-success btn-xs'>Book</a>";
-                } 
-                elseif ($req_service == $service1 && $req_aircon == $aircon2) {
-                    $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='book-date.php?date=".$date."&service=Cleaning&aircon=Window Type' class='btn btn-success btn-xs'>Book</a>";
+                //display total bookings that depends in services
+                //try niyo muna iclear yung data sa db baka kasi may bug
+                //yung bug: hindi nabibilang yung mga data sa db before creation ng logic sa baba 
+                $service = $_GET['service'];
+                $totalbookings_cleaning = checkslot($mysqli,$date,$service);
+                $totalbookings_repair = checkslot($mysqli,$date,$service);
+                $totalbookings_installation = checkslot($mysqli,$date,$service);
+                if ($_REQUEST['service'] == 'cleaning' ) {
+                    if ($totalbookings_cleaning==4) {
+                        $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='#' class='btn btn-danger btn-xs'>All Booked</a>";    
+                    }else {
+                        $availableslot_cleaning = 4 - $totalbookings_cleaning;
+                        $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='book-date.php?date=".$date."&service=".$service."&aircon=".$_GET['aircon']."' class='btn btn-success btn-xs'>Book</a><small><i>$availableslot_cleaning slots left</i></small>";
+                    }
+                }elseif ($_REQUEST['service'] == 'repair') {
+                    if ($totalbookings_repair==3) {
+                        $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='#' class='btn btn-danger btn-xs'>All Booked</a>";    
+                    }else {
+                        $availableslot_repair = 3 - $totalbookings_repair;
+                        $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='book-date.php?date=".$date."&service=".$service."&aircon=".$_GET['aircon']."' class='btn btn-success btn-xs'>Book</a><small><i>$availableslot_repair slots left</i></small>";
+                    }
+                } else {
+                    if ($totalbookings_installation==2) {
+                        $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='#' class='btn btn-danger btn-xs'>All Booked</a>";    
+                    }else {
+                        $availableslot_installation = 2 - $totalbookings_installation;
+                        $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='book-date.php?date=".$date."&service=".$service."&aircon=".$_GET['aircon']."' class='btn btn-success btn-xs'>Book</a><small><i>$availableslot_installation slots left</i></small>";
+                    }
                 }
-                elseif ($req_service == $service1 && $req_aircon == $aircon3) {
-                    $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='book-date.php?date=".$date."&service=Cleaning&aircon=Floor Mounted' class='btn btn-success btn-xs'>Book</a>";
-                }
-                elseif ($req_service == $service1 && $req_aircon == $aircon4) {
-                    $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='book-date.php?date=".$date."&service=Cleaning&aircon=Ceilling Cassette' class='btn btn-success btn-xs'>Book</a>";
-                }
-                elseif ($req_service == $service1 && $req_aircon == $aircon5) {
-                    $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='book-date.php?date=".$date."&service=Cleaning&aircon=Ceilling Suspended' class='btn btn-success btn-xs'>Book</a>";
-                }
-                elseif ($req_service == $service2 && $req_aircon == $aircon1) {
-                    $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='book-date.php?date=".$date."&service=Repair&aircon=Wall Mounted' class='btn btn-success btn-xs'>Book</a>";
-                }
-                elseif ($req_service == $service2 && $req_aircon == $aircon2) {
-                    $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='book-date.php?date=".$date."&service=Repair&aircon=Window Type' class='btn btn-success btn-xs'>Book</a>";
-                }
-                elseif ($req_service == $service2 && $req_aircon == $aircon3) {
-                    $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='book-date.php?date=".$date."&service=Repair&aircon=Floor Mounted' class='btn btn-success btn-xs'>Book</a>";
-                }
-                elseif ($req_service == $service2 && $req_aircon == $aircon4) {
-                    $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='book-date.php?date=".$date."&service=Repair&aircon=Ceilling Cassette' class='btn btn-success btn-xs'>Book</a>";
-                }
-                elseif ($req_service == $service2 && $req_aircon == $aircon5) {
-                    $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='book-date.php?date=".$date."&service=Repair&aircon=Ceilling Suspended' class='btn btn-success btn-xs'>Book</a>";
-                }
-                elseif ($req_service == $service3 && $req_aircon == $aircon1) {
-                    $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='book-date.php?date=".$date."&service=Installation&aircon=Wall Mounted' class='btn btn-success btn-xs'>Book</a>";
-                }
-                elseif ($req_service == $service3 && $req_aircon == $aircon2) {
-                    $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='book-date.php?date=".$date."&service=Installation&aircon=Window Type' class='btn btn-success btn-xs'>Book</a>";
-                }
-                elseif ($req_service == $service3 && $req_aircon == $aircon3) {
-                    $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='book-date.php?date=".$date."&service=Installation&aircon=Floor Mounted' class='btn btn-success btn-xs'>Book</a>";
-                }
-                elseif ($req_service == $service3 && $req_aircon == $aircon4) {
-                    $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='book-date.php?date=".$date."&service=Installation&aircon=Ceilling Cassette' class='btn btn-success btn-xs'>Book</a>";
-                }
-                elseif ($req_service == $service3 && $req_aircon == $aircon5) {
-                    $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='book-date.php?date=".$date."&service=Installation&aircon=Ceilling Suspended' class='btn btn-success btn-xs'>Book</a>";
-                }
+
             }  
             
            
@@ -154,6 +114,23 @@ function build_calendar($month, $year) {
      $calendar .= "</table>";
      echo $calendar;
 } 
+
+function checkslot($mysqli,$date,$service){
+    $stmt = $mysqli->prepare("select * from bookings WHERE Date = ? and serviceType = ?");
+    $stmt->bind_param('ss', $date, $service);
+    $totalbookings = 0;
+    if($stmt->execute()){
+        $result = $stmt->get_result();
+        if($result->num_rows>0){
+            while($row = $result->fetch_assoc()){
+                $totalbookings++;
+            }
+            
+            $stmt->close();
+         }
+    }
+    return $totalbookings;
+}
 ?>
 
 <html>
@@ -276,7 +253,7 @@ function build_calendar($month, $year) {
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <button class="back-btn-border"><a href="../si-services.html" id="back-btn">&lt&ltBack</a></button>
+                <button class="back-btn-border"><a href="si-services.html" id="back-btn">&lt&ltBack</a></button>
                 <?php
                      $dateComponents = getdate();
                      if(isset($_GET['month']) && isset($_GET['year'])){

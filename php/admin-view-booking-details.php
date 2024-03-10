@@ -17,9 +17,15 @@
                 <a href="admin-view-bookings.php" class="btn btn-primary">Back</a>
             </div>
         </header>
-    
 
-    <table class="table">
+        <?php
+        // Check if a date is selected
+        $selectedDate = isset($_GET['date']) ? $_GET['date'] : date('Y-m-d');
+        ?>
+
+        <h2>Bookings for <?php echo $selectedDate; ?></h2>
+
+        <table class="table">
             <thead>
                 <tr>
                     <th>Full Name</th>
@@ -30,51 +36,94 @@
                     <th>Service Type</th>
                     <th>Message</th>
                     <th>Date</th>
+                    <th>Time Slot</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                 include_once 'book-db.php';
-               //may iinsert pa ako dito para yung data lang sa mismong date yung lalabas
-                 $result = mysqli_query($mysqli,"SELECT * FROM bookings");
-                 ?>
-                 <?php
-                 if (mysqli_num_rows($result) > 0) {
-                     $row = mysqli_fetch_array($result)
-                    ?>
-                    <tr>
-                        <td>
-                            <?php echo $row["fullName"]; ?>
-                        </td>
-                        <td>
-                            <?php echo $row["fullAddress"]; ?>
-                        </td>
-                        <td>
-                            <?php echo $row["email"]; ?>
-                        </td>
-                        <td>
-                            <?php echo $row["contactNum"]; ?>
-                        </td>
-                        <td>
-                            <?php echo $row["airconType"]; ?>
-                        </td>
-                        <td>
-                            <?php echo $row["serviceType"]; ?>
-                        </td>
-                        <td>
-                            <?php echo $row["message"]; ?>
-                        </td>
-                        <td>
-                            <?php echo $row["date"]; ?>
-                        </td>
-                        <td>
-                            <a href="admin-edit-bookings.php?id=<?php echo $row["id"]; ?>" class="btn btn-info ">Edit</a>
-                            <a href="#?id=<?php echo $row["id"]; ?>" class="btn btn-danger">Delete</a>
-                        </td>
-                    </tr>
-                    <?php
+                include_once 'book-db.php';
+
+                // Modify the SQL query to include the selected date
+                $result = mysqli_query($mysqli, "SELECT * FROM bookings WHERE date = '$selectedDate'");
+
+                if (mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_array($result)) {
+                        ?>
+                        <tr>
+                            <td><?php echo $row["fullName"]; ?></td>
+                            <td><?php echo $row["fullAddress"]; ?></td>
+                            <td><?php echo $row["email"]; ?></td>
+                            <td><?php echo $row["contactNum"]; ?></td>
+                            <td><?php echo $row["airconType"]; ?></td>
+                            <td><?php echo $row["serviceType"]; ?></td>
+                            <td><?php echo $row["message"]; ?></td>
+                            <td><?php echo $row["date"]; ?></td>
+                            <td><?php echo $row["timeslot"]; ?></td>
+                            <td>
+                                <a href="admin-edit-bookings.php?id=<?php echo $row["id"]; ?>" class="btn btn-info">Edit</a>
+                                
+                                <?php
+                                // Check if the booking is accepted
+                                if ($row["status"] != 'Accepted') {
+                                    // Render the "Reject" button with a condition to disable it
+                                    ?>
+                                    <a href="?action=accept&id=<?php echo $row["id"]; ?>" class="btn btn-success">Accept</a>
+                                    
+                                <?php
+                                } else {
+                                    // Render a disabled "Reject" button
+                                    ?>
+                                    <button class="btn btn-danger" disabled>Reject</button>
+                                <?php
+                                }
+                                ?>
+
+                                <?php
+                                // Check if the booking is accepted
+                                if ($row["status"] == 'Accepted') {
+                                    // Render the "Cancel" button for accepted bookings
+                                    ?>
+                                    <a href="?action=cancel&id=<?php echo $row["id"]; ?>" class="btn btn-warning">Cancel</a>
+                                <?php
+                                } else {
+                                    // Render the "Reject" button with a condition to disable it
+                                    ?>
+                                    <a href="?action=reject&id=<?php echo $row["id"]; ?>" class="btn btn-danger">Reject</a>
+                                <?php
+                                }
+                                ?>
+                            </td>
+                        </tr>
+                        <?php
+                    }
+                } else {
+                    echo "<tr><td colspan='9'>No results found</td></tr>";
+                }
+
+                // Handle booking status changes
+                if (isset($_GET['action']) && in_array($_GET['action'], ['accept', 'reject', 'cancel'])) {
+                    $action = $_GET['action'];
+                    $bookingId = $_GET['id'];
+
+                    // Update the booking status in the database
+                    if ($action == 'accept') {
+                        $status = 'Accepted';
+                        mysqli_query($mysqli, "UPDATE bookings SET status = '$status' WHERE id = $bookingId");
+                    } elseif ($action == 'reject') {
+                        // Remove the booking if rejected
+                        mysqli_query($mysqli, "DELETE FROM bookings WHERE id = $bookingId");
+                    }elseif ($action == 'cancel') {
+                        mysqli_query($mysqli, "DELETE FROM bookings WHERE id = $bookingId");
+                    }
+
+                    // Redirect back to the same page after the status update
+                    header("Location: admin-view-bookings.php?date=$selectedDate");
+                    exit();
                 }
                 ?>
+            </tbody>
+        </table>
     </div>
 </body>
 </html>
