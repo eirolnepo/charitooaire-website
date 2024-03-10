@@ -38,8 +38,7 @@ function build_calendar($month, $year) {
     
     $calendar.= "<a class='btn btn-xs btn-primary' href='?month=".date('m', mktime(0, 0, 0, $month+1, 1, $year))."&year=".date('Y', mktime(0, 0, 0, $month+1, 1, $year))."'>Next Month</a> ";
     $calendar.= "<a class='btn btn-xs btn-primary' href='admin-approval-page.php'>All Bookings</a></center><br> ";
-    
-    $calendar.= "<tr>";
+        $calendar .= "<tr>";
 
      foreach($daysOfWeek as $day) {
           $calendar .= "<th  class='header'>$day</th>";
