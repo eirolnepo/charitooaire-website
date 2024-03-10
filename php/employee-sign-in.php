@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if($user && password_verify($_POST["psw"], $user["password_hash"])) {
         session_start();
         $_SESSION["user_id"] = $user["id"];
-        header("Location: ../employee-homepage.html");
+        header("Location: employee-homepage.php");
         exit;
     }
     
