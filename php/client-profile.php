@@ -70,6 +70,7 @@ $user = $result->fetch_assoc();
                 <p>Contact Number</p>
                 <p class="values"><?php echo $user["contnum"]; ?></p>
                 <a href="client-edit-info.php" class="smalltext">Edit Information</a>
+                <a href="client-approval-page.php" class="smalltext">View Your Bookings</a>
             </div>
         </div>
 

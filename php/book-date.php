@@ -1,4 +1,12 @@
 <?php
+session_start();
+$mysqli = require __DIR__ . "/client-db.php";
+$sessionId = $_SESSION["user_id"];
+$sql = sprintf("SELECT * FROM user WHERE id = $sessionId");
+$result = $mysqli->query($sql);
+$user = $result->fetch_assoc();
+?>
+<?php
 
 $service = $_REQUEST['service'];
 $aircon = $_REQUEST['aircon'];
@@ -23,6 +31,7 @@ if (isset($_GET['date'])) {
 
 //for date of bookings
 if(isset($_POST["submit"])){
+    $id = $_SESSION['user_id'];
     $name = $_POST["fname"];
     $address = $_POST["faddress"];
     $email = $_POST["email"];
@@ -41,9 +50,9 @@ if(isset($_POST["submit"])){
           $msg = "<div class='alert alert-danger role='alert' style='width:47%;text-align:left;margin-left:0'>Already Booked</div>";
            
         } else {
-          $stmt = $mysqli->prepare("INSERT INTO bookings (fullName, fullAddress, email, contactNum, airconType, serviceType, message, date, timeslot)
-          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-          $stmt->bind_param('sssisssss', $name, $address, $email, $number, $aircontype, $servicetype, $message, $date, $timeslot);
+          $stmt = $mysqli->prepare("INSERT INTO bookings (id, fullName, fullAddress, email, contactNum, airconType, serviceType, message, date, timeslot)
+          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+          $stmt->bind_param('isssisssss', $id, $name, $address, $email, $number, $aircontype, $servicetype, $message, $date, $timeslot);
           $stmt->execute();
           $msg = "<div class='alert alert-success role='alert' style='width:48%;text-align:left;margin-left:0'>Booking Successful!</div>";
           $bookings[]= $timeslot;
@@ -90,7 +99,6 @@ function timeslot($duration, $cleanup, $start, $end){
   return $slots;
 }
 ?>
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -102,6 +110,7 @@ function timeslot($duration, $cleanup, $start, $end){
   </head>
 
   <body>
+  <?php if (isset ($_SESSION["user_id"])): ?>
     <div id="main-container">
     <a href="services.php"><img src="../imgs/back-btn.svg" style="width: 3rem; filter: invert(100%) sepia(100%) saturate(1%) hue-rotate(36deg) brightness(106%) contrast(101%);"></a>
     <div class="container">
@@ -201,6 +210,7 @@ function timeslot($duration, $cleanup, $start, $end){
         $("#myModal").modal("show");
       })
     </script>
+    <?php endif; ?>
   </body>
 
 </html>

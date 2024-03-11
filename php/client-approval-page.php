@@ -1,3 +1,12 @@
+<?php
+session_start();
+$mysqli = require __DIR__ . "/client-db.php";
+$sessionId = $_SESSION["user_id"];
+$sql = sprintf("SELECT * FROM user WHERE id = $sessionId");
+$result = $mysqli->query($sql);
+$user = $result->fetch_assoc();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,11 +19,12 @@
     <title>All Bookings</title>
 </head>
 <body>
+<?php if (isset ($_SESSION["user_id"])): ?>
     <div class="container">
         <header class="d-flex justify-content-between my-4">
             <h1>All Bookings</h1>
             <div>
-                <a href="#" class="btn btn-primary">Back</a> <!--palagay nalang reference para sa profile ng customer -->
+                <a href="client-profile.php" class="btn btn-primary">Back</a> <!--palagay nalang reference para sa profile ng customer -->
             </div>
         </header>
 
@@ -40,12 +50,13 @@
             </thead>
             <tbody>
                 <?php
+                
                 include_once 'book-db.php';
-
+                $user_id = $_SESSION['user_id'];
                 // Modify the SQL query to include the selected date
-                $result = mysqli_query($mysqli, "SELECT * FROM bookings ORDER BY Date ASC");
+                $result = mysqli_query($mysqli, "SELECT * FROM bookings WHERE id = $user_id");
 
-                if (mysqli_num_rows($result) > 0) {
+                if ($result && mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_array($result)) {
                         ?>
                         <tr>
@@ -71,5 +82,6 @@
             </tbody>
         </table>
     </div>
+    <?php endif; ?>
 </body>
 </html>
