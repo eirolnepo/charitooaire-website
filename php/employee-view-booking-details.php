@@ -21,6 +21,7 @@
         // Check if a date is selected
         $selectedDate = isset($_GET['date']) ? $_GET['date'] : date('Y-m-d');
         ?>
+        
 
         <table class="table">
             <thead>
@@ -40,9 +41,8 @@
             <tbody>
                 <?php
                 include_once 'book-db.php';
-
-                
                     $result = mysqli_query($mysqli, "SELECT * FROM bookings WHERE date = '$selectedDate'");
+                
 
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_array($result)) {
@@ -57,7 +57,8 @@
                             <td><?php echo $row["message"]; ?></td>
                             <td><?php echo $row["date"]; ?></td>
                             <td><?php echo $row["timeslot"]; ?></td>
-                            <td><?php
+                            <td>
+                                <?php
                                 //checks status if done
                                 if ($row["status"] != 'Done') {
                                 //if not proceeds to verification below ?>
