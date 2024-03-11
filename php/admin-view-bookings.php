@@ -36,7 +36,8 @@ function build_calendar($month, $year) {
     
     $calendar.= " <a class='btn btn-xs btn-primary' href='?month=".date('m')."&year=".date('Y')."'>Current Month</a> ";
     
-    $calendar.= "<a class='btn btn-xs btn-primary' href='?month=".date('m', mktime(0, 0, 0, $month+1, 1, $year))."&year=".date('Y', mktime(0, 0, 0, $month+1, 1, $year))."'>Next Month</a></center><br>";
+    $calendar.= "<a class='btn btn-xs btn-primary' href='?month=".date('m', mktime(0, 0, 0, $month+1, 1, $year))."&year=".date('Y', mktime(0, 0, 0, $month+1, 1, $year))."'>Next Month</a>";
+    $calendar.= " <a class='btn btn-xs btn-primary' href='admin-approval-page.php'>All Bookings</a></center><br> ";
     
       $calendar .= "<tr>";
 
@@ -75,10 +76,12 @@ function build_calendar($month, $year) {
             }elseif($date<date('Y-m-d')){
                $calendar.="<td><h4>$currentDay</h4> <button class='btn btn-danger btn-xs'>N/A</button>";
             }elseif(in_array($date, $bookings)){
-               $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='admin-view-booking-details.php?date=".$date."' class='btn btn-primary btn-xs'>Check Details</a>";
-            }else{
-               $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='#?date=".$date."' class='btn btn-success btn-xs'>Book</a>";
-            }  
+                $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='admin-view-booking-details.php?date=".$date."' class='btn btn-info btn-xs'>Check Details</a>";
+                $calendar.=" <a href='admin-book-date.php?date=".$date."' class='btn btn-success btn-xs'>Book</a>";
+             }else{
+                 
+                 $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='admin-book-date.php?date=".$date."' class='btn btn-success btn-xs'>Book</a>";
+             }  
             
            
             

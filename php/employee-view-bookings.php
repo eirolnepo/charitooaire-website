@@ -75,10 +75,12 @@ function build_calendar($month, $year) {
             }elseif($date<date('Y-m-d')){
                $calendar.="<td><h4>$currentDay</h4> <button class='btn btn-danger btn-xs'>N/A</button>";
             }elseif(in_array($date, $bookings)){
-               $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='employee-view-booking-details.php?date=".$date."' class='btn btn-primary btn-xs'>Check Details</a>";
-            }else{
-               $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='#?date=".$date."' class='btn btn-success btn-xs'>Book</a>";
-            }  
+                $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='employee-view-booking-details.php?date=".$date."' class='btn btn-primary btn-xs'>Check Details</a>";
+                $calendar.=" <a href='employee-book-date.php?date=".$date."' class='btn btn-success btn-xs'>Book</a>";
+             }else{
+                 
+                 $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='employee-book-date.php?date=".$date."' class='btn btn-success btn-xs'>Book</a>";
+             }    
             
            
             
@@ -219,7 +221,7 @@ function build_calendar($month, $year) {
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-        <button class="back-btn-border"><a href="../employee-homepage.html" id="back-btn">Back</a></button>
+        <button class="back-btn-border"><a href="employee-homepage.php" id="back-btn">Back</a></button>
                 <?php
                      $dateComponents = getdate();
                      if(isset($_GET['month']) && isset($_GET['year'])){

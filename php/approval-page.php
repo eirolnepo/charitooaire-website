@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" 
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/script.js"></script>
     <title>Edit Bookings</title>
@@ -11,9 +12,9 @@
 <body>
     <div class="container">
         <header class="d-flex justify-content-between my-4">
-            <h1>Edit Member</h1>
+            <h1>All Bookings</h1>
             <div>
-                <a href="employee-view-bookings.php" class="btn btn-primary">Back</a>
+                <a href="employee-homepage.php" class="btn btn-primary">Back</a>
             </div>
         </header>
 
@@ -21,7 +22,12 @@
         // Check if a date is selected
         $selectedDate = isset($_GET['date']) ? $_GET['date'] : date('Y-m-d');
         ?>
-
+        <form method="GET" action="">
+            <label for="search">Search:</label>
+            <input type="text" name="search" id="search" placeholder="Enter search term">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+        
         <table class="table">
             <thead>
                 <tr>
@@ -40,9 +46,21 @@
             <tbody>
                 <?php
                 include_once 'book-db.php';
+                // Check if search parameter is present
+                if (isset($_GET['search'])) {
+                    $search = $_GET['search'];
+                    $result = mysqli_query($mysqli, "SELECT * FROM bookings WHERE 
+                        fullName LIKE '%$search%' OR
+                        fullAddress LIKE '%$search%' OR
+                        email LIKE '%$search%' OR
+                        contactNum LIKE '%$search%' OR
+                        airconType LIKE '%$search%' OR
+                        serviceType LIKE '%$search%'");
+                } else {
+                    // Default query without search
+                    $result = mysqli_query($mysqli, "SELECT * FROM bookings ORDER BY Date ASC");
+                }
 
-                
-                    $result = mysqli_query($mysqli, "SELECT * FROM bookings WHERE date = '$selectedDate'");
 
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_array($result)) {
@@ -57,12 +75,15 @@
                             <td><?php echo $row["message"]; ?></td>
                             <td><?php echo $row["date"]; ?></td>
                             <td><?php echo $row["timeslot"]; ?></td>
-                            <td><?php
+                            <td>
+
+                                                            
+                                <?php
                                 //checks status if done
                                 if ($row["status"] != 'Done') {
-                                //if not proceeds to verification below ?>
-                                <a href="admin-edit-bookings.php?id=<?php echo $row["id"]; ?>" class="btn btn-info">Edit</a>
-                               <?php // Check if the booking is accepted
+                                //if not proceeds to verification below
+
+                                // Check if the booking is accepted
                                 if ($row["status"] != 'Accepted') {
                                     // Render the "Reject" button with a condition to disable it
                                     ?>
@@ -90,13 +111,14 @@
                                     <a href="?action=reject&id=<?php echo $row["id"]; ?>" class="btn btn-danger">Reject</a>
                                 <?php
                                 }
-                                ?>
-                                <?php
+                                ?> 
+                            <?php
                         } else {?>
                                 <?php 
                                 //if the status is 'done', display its status
                                 echo $row["status"];?> 
                                 <?php } ?>
+    
                             </td>
                         </tr>
                         <?php
@@ -125,9 +147,10 @@
                     }
 
                     // Redirect back to the same page after the status update
-                    header("Location: employee-view-bookings.php");
+                    header("Location:approval-page.php?date=$selectedDate");
                     exit();
-                } ?>
+                }
+                ?>
             </tbody>
         </table>
     </div>
