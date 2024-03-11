@@ -98,11 +98,12 @@ function timeslot($duration, $cleanup, $start, $end){
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <link rel="stylesheet" href="../css/book-date.css">
   </head>
 
   <body>
-    <button id="back-btn"><a href="bookings.php">&lt&ltBack</a></button>
+    <div id="main-container">
+    <a href="services.php"><img src="../imgs/back-btn.svg" style="width: 3rem; filter: invert(100%) sepia(100%) saturate(1%) hue-rotate(36deg) brightness(106%) contrast(101%);"></a>
     <div class="container">
         <h1>Book a Service for <?php echo date('F j, Y', strtotime($date)); ?></h1><hr style="width:47%;text-align:left;margin-left:0"><br>
         <?php echo isset($msg)?$msg:''; ?>
@@ -126,6 +127,8 @@ function timeslot($duration, $cleanup, $start, $end){
         <?php 
             }
         ?>
+    </div>
+    
         
     </div>
     <div id="myModal" class="modal fade" role="dialog">
@@ -171,7 +174,7 @@ function timeslot($duration, $cleanup, $start, $end){
                 </div>
                 <div class="form-group">
                   <label for="">Message</label>
-                  <textarea placeholder="Leave a message to specify your concerns" id="message" name="message" rows="4" style="resize: none;"></textarea>
+                  <textarea placeholder="Leave a message to specify your concerns" id="message" name="message" rows="3" cols="70" style="resize: none;"></textarea>
                     <p>We look forward to providing you with the best air conditioning service!</p>
                 </div>
                 <div class="form-group pull-right">

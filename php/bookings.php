@@ -1,4 +1,5 @@
 <?php
+session_start();
 function build_calendar($month, $year) {
     $mysqli = new mysqli('localhost', 'root', '', 'book_db');
     //create an array containing days of the week
@@ -253,7 +254,7 @@ function checkslot($mysqli,$date,$service){
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <button class="back-btn-border"><a href="si-services.html" id="back-btn">&lt&ltBack</a></button>
+                <button class="back-btn-border"><a href="services.php" id="back-btn">&lt&ltBack</a></button>
                 <?php
                      $dateComponents = getdate();
                      if(isset($_GET['month']) && isset($_GET['year'])){

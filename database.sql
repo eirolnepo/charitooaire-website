@@ -46,8 +46,10 @@ CREATE TABLE bookings(
     message VARCHAR(255),
     date VARCHAR(255),
     timeslot VARCHAR(255),
-    status VARCHAR(255)
+    status VARCHAR(255) DEFAULT 'Pending'
 );
+
+INSERT INTO bookings VALUES ();
 
 DROP TABLE bookings;
 

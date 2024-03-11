@@ -58,6 +58,7 @@
                             <th>Service Type</th>
                             <th>Message</th>
                             <th>Date</th>
+                            <th>Status</th>
                         </tr>
                         </thead>
                         <?php
@@ -74,6 +75,7 @@
                             <td><?php echo $row["serviceType"]; ?></td>
                             <td><?php echo $row["message"]; ?></td>
                             <td><?php echo $row["date"]; ?></td>
+                            <td><?php echo $row["status"]; ?></td>
                         </tr>
                         </tbody>
                         <?php
